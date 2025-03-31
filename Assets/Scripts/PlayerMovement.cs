@@ -31,6 +31,6 @@ public class PlayerMovement : MonoBehaviour
 
         _animator.SetFloat(_HORIZONTAL, _movement.x);
         _animator.SetFloat(_VERTICAL, _movement.y);
-        _animator.SetFloat(_IS_SPRINTING, InputManager.isSprinting ? 1f : 0f);
+        _animator.SetBool("isSprinting", InputManager.isSprinting);
     }
 }
