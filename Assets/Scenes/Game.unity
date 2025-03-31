@@ -2279,6 +2279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 3
+  _sprintMultiplier: 1.5
 --- !u!95 &637662913
 Animator:
   serializedVersion: 7
@@ -71325,8 +71326,8 @@ Camera:
   near clip plane: 0.1
   far clip plane: 5000
   field of view: 40
-  orthographic: 0
-  orthographic size: 10
+  orthographic: 1
+  orthographic size: 2.77
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -78367,7 +78368,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 40
-    OrthographicSize: 10
+    OrthographicSize: 2.77
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
