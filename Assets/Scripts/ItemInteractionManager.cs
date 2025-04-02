@@ -12,6 +12,8 @@ public class InteractableItem
 public class ItemInteractionManager : MonoBehaviour
 {
     [SerializeField] private List<InteractableItem> interactableItems = new List<InteractableItem>();
+    [SerializeField] private GameObject interactionPopup; // UI Popup (E Icon + Text)
+
     private Dictionary<GameObject, float> itemDelays = new Dictionary<GameObject, float>();
 
     private bool isNearItem = false;
@@ -30,6 +32,11 @@ public class ItemInteractionManager : MonoBehaviour
                 itemDelays[item.item] = item.respawnDelay;
             }
         }
+
+        if (interactionPopup != null)
+        {
+            interactionPopup.SetActive(false); // Hide popup at the start
+        }
     }
 
     private void Update()
@@ -45,6 +52,7 @@ public class ItemInteractionManager : MonoBehaviour
         if (item != null)
         {
             item.SetActive(false);
+            interactionPopup.SetActive(false); // Hide popup after interacting
             playerMovement.SwingSword();
 
             float delay = itemDelays.ContainsKey(item) ? itemDelays[item] : 2f;
@@ -64,6 +72,11 @@ public class ItemInteractionManager : MonoBehaviour
         {
             isNearItem = true;
             currentItem = other.gameObject;
+
+            if (interactionPopup != null)
+            {
+                interactionPopup.SetActive(true); // Show popup when near
+            }
         }
     }
 
@@ -73,6 +86,11 @@ public class ItemInteractionManager : MonoBehaviour
         {
             isNearItem = false;
             currentItem = null;
+
+            if (interactionPopup != null)
+            {
+                interactionPopup.SetActive(false); // Hide popup when leaving
+            }
         }
     }
 }

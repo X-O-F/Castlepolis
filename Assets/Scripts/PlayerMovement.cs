@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
         _animator.SetFloat(_HORIZONTAL, _movement.x);
         _animator.SetFloat(_VERTICAL, _movement.y);
-        _animator.SetBool("isSprinting", InputManager.isSprinting);
+        _animator.SetBool(_IS_SPRINTING, InputManager.isSprinting);
 
         if(_movement != Vector2.zero)
         {
