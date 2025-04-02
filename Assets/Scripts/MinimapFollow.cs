@@ -2,16 +2,14 @@ using UnityEngine;
 
 public class MinimapFollow : MonoBehaviour
 {
-    public Transform target; // Drag your player here
+    public Transform target;
 
     void LateUpdate()
     {
         if (target != null)
         {
-            Vector3 newPos = target.position;
-            newPos.z = transform.position.z; // Keep camera height
-            newPos.y = transform.position.y; // Optional: keep height constant if top-down
-            transform.position = newPos;
+            // Keep the camera at the player's X and Y position, but keep Z fixed
+            transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
         }
     }
 }
