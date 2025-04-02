@@ -9,39 +9,50 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI textComponent;
     public string[] lines;
     public float textSpeed;
+    public bool dialogueActive = false;
     
     private int index;
+    private DialogueInteraction interaction;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gameObject.SetActive(false);
+        interaction = FindObjectOfType<DialogueInteraction>();
         textComponent.text = string.Empty;
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            StartDialogue();
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (interaction.playerNearby && Input.GetKeyDown(KeyCode.E))
         {
-            if (textComponent.text == lines[index])
+            if (!dialogueActive)
             {
-                NextLine();
+                StartDialogue();
             }
             else
             {
-                StopAllCoroutines();
-                textComponent.text = lines[index];
+                if (textComponent.text == lines[index])
+                {
+                    NextLine();
+                }
+                else
+                {
+                    StopAllCoroutines();
+                    textComponent.text = lines[index];
+                }
             }
+
         }
     }
 
     public void StartDialogue()
     {
+        gameObject.SetActive(true);
+
         index = 0;
+        dialogueActive = true;
         StartCoroutine(TypeLine());
     }
 
@@ -65,6 +76,8 @@ public class Dialogue : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
+            dialogueActive = false;
+            textComponent.text = string.Empty;
         }
     }
 }

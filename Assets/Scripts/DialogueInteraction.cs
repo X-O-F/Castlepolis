@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class DialogueInteraction : MonoBehaviour
 {
-    private bool playerNearby = false;
-    private Dialogue dialogue;
+    public bool playerNearby = false;
+    public Dialogue dialogue;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        dialogue = FindObjectOfType<Dialogue>();
+        dialogue = FindObjectOfType<Dialogue>(true);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -25,6 +25,12 @@ public class DialogueInteraction : MonoBehaviour
         {
             playerNearby = false;
         }
+        if (dialogue != null && dialogue.dialogueActive)
+        {
+            dialogue.gameObject.SetActive(false);
+            dialogue.dialogueActive = false;
+        }
+
     }
 
     // Update is called once per frame
@@ -32,7 +38,10 @@ public class DialogueInteraction : MonoBehaviour
     {
         if (playerNearby && Input.GetKeyDown(KeyCode.E))
         {
-            dialogue.StartDialogue();
+            if (dialogue != null && !dialogue.dialogueActive)
+            {
+                dialogue.StartDialogue();
+            }
         }
     }
 }
