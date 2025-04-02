@@ -55,6 +55,11 @@ public class PlayerMovement : MonoBehaviour
         _isSwinging = true;
         _canMove = false;
 
+        _rb.linearVelocity = Vector2.zero; // Instantly stop any movement
+        _animator.SetFloat(_HORIZONTAL, 0);
+        _animator.SetFloat(_VERTICAL, 0);
+        _animator.SetBool(_IS_SPRINTING, false);
+
         _animator.SetTrigger(_SWING_SWORD);
         Debug.Log("swing");
     }

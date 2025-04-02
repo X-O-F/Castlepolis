@@ -1,59 +1,78 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+
+[System.Serializable]
+public class InteractableItem
+{
+    public GameObject item;
+    public float respawnDelay = 2f;
+}
 
 public class ItemInteractionManager : MonoBehaviour
 {
-    [SerializeField] private GameObject sword; // Reference to the sword object in the world
-    [SerializeField] private float interactionRange = 1f; // How close the player needs to be to interact with the object
-    private bool isNearItem = false; // Tracks if the player is in range of an item
+    [SerializeField] private List<InteractableItem> interactableItems = new List<InteractableItem>();
+    private Dictionary<GameObject, float> itemDelays = new Dictionary<GameObject, float>();
+
+    private bool isNearItem = false;
     private PlayerMovement playerMovement;
-    
+    private GameObject currentItem;
+
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
+
+        // Populate dictionary from the inspector list
+        foreach (var item in interactableItems)
+        {
+            if (item.item != null)
+            {
+                itemDelays[item.item] = item.respawnDelay;
+            }
+        }
     }
 
     private void Update()
     {
-        if (isNearItem && Input.GetKeyDown(KeyCode.E))
+        if (isNearItem && Input.GetKeyDown(KeyCode.E) && currentItem != null)
         {
-            Debug.Log("is near and pressed e");
-            InteractWithItem();
+            InteractWithItem(currentItem);
         }
     }
 
-    private void InteractWithItem()
+    private void InteractWithItem(GameObject item)
     {
-        Debug.Log("interacting with sword");
-        if (sword != null)
+        if (item != null)
         {
-            // Hide the sword (or make it inactive)
-            sword.SetActive(false);
-
-            // Lock the player's movement and trigger the sword swing animation
+            item.SetActive(false);
             playerMovement.SwingSword();
 
-            // Optionally, you can implement logic here for picking up or interacting with other items
+            float delay = itemDelays.ContainsKey(item) ? itemDelays[item] : 2f;
+            StartCoroutine(RespawnItem(item, delay));
         }
+    }
+
+    private IEnumerator RespawnItem(GameObject item, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        item.SetActive(true);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("player near object");
-        // Check if the player is near an interactable object (e.g., the sword)
-        if (other.CompareTag("Interactable")) // Ensure your sword object has the "Interactable" tag
+        if (itemDelays.ContainsKey(other.gameObject)) // Check if it's a registered interactable item
         {
             isNearItem = true;
-            Debug.Log("Press E to interact with the sword.");
+            currentItem = other.gameObject;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("Player left object");
-        // If the player moves away from the item, stop interaction
-        if (other.CompareTag("Interactable"))
+        if (currentItem == other.gameObject)
         {
             isNearItem = false;
+            currentItem = null;
         }
     }
 }
