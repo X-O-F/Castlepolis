@@ -37,8 +37,6 @@ public class Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Dialogue is being updated.");
-
         if (currentInteraction != null && currentInteraction.playerNearby && Input.GetKeyDown(KeyCode.E))
         {
             if (!dialogueActive)
@@ -55,8 +53,6 @@ public class Dialogue : MonoBehaviour
 
     public void StartDialogue(string npcName)
     {
-        Debug.Log("Dialogue is starting.");
-
         StopAllCoroutines();
 
         textComponent.text = string.Empty;
@@ -87,8 +83,6 @@ public class Dialogue : MonoBehaviour
 
     IEnumerator TypeLine()
     {
-        Debug.Log("Lines are being printed.");
-
         textComponent.text = string.Empty;
         foreach(char c in current[index].ToCharArray())
         {
@@ -99,7 +93,6 @@ public class Dialogue : MonoBehaviour
 
     public void NextLine()
     {
-        Debug.Log("Moving to next line.");
         if (current == null) return;
 
         if (index < current.Length - 1)
