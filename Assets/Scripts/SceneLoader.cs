@@ -5,6 +5,8 @@ public class SceneLoader : MonoBehaviour
 {
     public void LoadScene(string sceneName)
     {
+        if (sceneName == "Game")
+            InputManager.ResetInputState();
         SceneManager.LoadScene(sceneName);
     }
 
