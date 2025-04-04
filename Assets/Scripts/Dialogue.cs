@@ -5,50 +5,79 @@ using TMPro;
 
 public class Dialogue : MonoBehaviour
 {
+    private DialogueInteraction currentInteraction;
+
+    public void SetInteraction(DialogueInteraction interaction)
+    {
+        currentInteraction = interaction;
+    }
 
     public TextMeshProUGUI textComponent;
-    public string[] lines;
     public float textSpeed;
     public bool dialogueActive = false;
     
     private int index;
-    private DialogueInteraction interaction;
+
+    [System.Serializable]
+    public class npcDialogue {
+        public string npcName;
+        public string[] lines;
+    }
+
+    public npcDialogue[] npcDialogues;
+    private string[] current;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         gameObject.SetActive(false);
-        interaction = FindObjectOfType<DialogueInteraction>();
         textComponent.text = string.Empty;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (interaction.playerNearby && Input.GetKeyDown(KeyCode.E))
+        Debug.Log("Dialogue is being updated.");
+
+        if (currentInteraction != null && currentInteraction.playerNearby && Input.GetKeyDown(KeyCode.E))
         {
             if (!dialogueActive)
             {
-                StartDialogue();
+                StartDialogue(currentInteraction.npcName);
             }
-            else
+            else if (textComponent.text == current[index])
             {
-                if (textComponent.text == lines[index])
-                {
-                    NextLine();
-                }
-                else
-                {
-                    StopAllCoroutines();
-                    textComponent.text = lines[index];
-                }
+                NextLine();
             }
 
         }
     }
 
-    public void StartDialogue()
+    public void StartDialogue(string npcName)
     {
+        Debug.Log("Dialogue is starting.");
+
+        StopAllCoroutines();
+
+        textComponent.text = string.Empty;
+        current = null;
+
+        foreach (var npcDialogue in npcDialogues)
+        {
+            if (npcDialogue.npcName == npcName)
+            {
+                current = npcDialogue.lines;
+                break;
+            }
+        }
+
+        if (current == null || current.Length == 0)
+        {
+            Debug.Log("No dialogue found for NPC: {npcName}");
+            return;
+        }
+
+
         gameObject.SetActive(true);
 
         index = 0;
@@ -58,16 +87,22 @@ public class Dialogue : MonoBehaviour
 
     IEnumerator TypeLine()
     {
-        foreach(char c in lines[index].ToCharArray())
+        Debug.Log("Lines are being printed.");
+
+        textComponent.text = string.Empty;
+        foreach(char c in current[index].ToCharArray())
         {
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
     }
 
-    void NextLine()
+    public void NextLine()
     {
-        if (index < lines.Length - 1)
+        Debug.Log("Moving to next line.");
+        if (current == null) return;
+
+        if (index < current.Length - 1)
         {
             index++;
             textComponent.text = string.Empty;
@@ -75,9 +110,10 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
-            dialogueActive = false;
+            StopAllCoroutines();
             textComponent.text = string.Empty;
+            dialogueActive = false;
+            gameObject.SetActive(false);
         }
     }
 }

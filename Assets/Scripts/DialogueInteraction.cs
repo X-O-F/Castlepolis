@@ -6,6 +6,8 @@ public class DialogueInteraction : MonoBehaviour
     public bool playerNearby = false;
     public Dialogue dialogue;
 
+    public string npcName;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -44,13 +46,20 @@ public class DialogueInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!dialogue) return;
+
         if (playerNearby && Input.GetKeyDown(KeyCode.E))
         {
             if (dialogue != null && !dialogue.dialogueActive)
             {
-                dialogue.StartDialogue();
+                dialogue.SetInteraction(this);
+                dialogue.StartDialogue(npcName);
                 if (interactionPopup != null)
                     interactionPopup.SetActive(false); // Hide popup when player interacted
+            }
+            else if (dialogue != null && dialogue.dialogueActive)
+            {
+                dialogue.NextLine();
             }
         }
         else if (playerNearby && dialogue != null && !dialogue.dialogueActive)
