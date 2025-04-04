@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class DialogueInteraction : MonoBehaviour
 {
+    [SerializeField] private GameObject interactionPopup; // UI Popup (E Icon + Text)
     public bool playerNearby = false;
     public Dialogue dialogue;
 
@@ -9,6 +10,9 @@ public class DialogueInteraction : MonoBehaviour
     void Awake()
     {
         dialogue = FindObjectOfType<Dialogue>(true);
+
+        if (interactionPopup != null)
+            interactionPopup.SetActive(false); // Hide popup at the start
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -16,6 +20,8 @@ public class DialogueInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerNearby = true;
+            if (interactionPopup != null)
+                interactionPopup.SetActive(true); // Show popup when player is near
         }
     }
 
@@ -24,6 +30,8 @@ public class DialogueInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerNearby = false;
+            if(interactionPopup != null)
+                interactionPopup.SetActive(false); // Hide popup when player is away
         }
         if (dialogue != null && dialogue.dialogueActive)
         {
@@ -41,7 +49,14 @@ public class DialogueInteraction : MonoBehaviour
             if (dialogue != null && !dialogue.dialogueActive)
             {
                 dialogue.StartDialogue();
+                if (interactionPopup != null)
+                    interactionPopup.SetActive(false); // Hide popup when player interacted
             }
+        }
+        else if (playerNearby && dialogue != null && !dialogue.dialogueActive)
+        {
+            if (interactionPopup != null)
+                interactionPopup.SetActive(true); // Show popup when dialogue ends but player is still near
         }
     }
 }
