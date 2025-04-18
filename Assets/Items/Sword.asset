@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138e0169d878e56449672aa1d8c21269, type: 3}
+  m_Name: Sword
+  m_EditorClassIdentifier: 
+  tile: {fileID: 0}
+  itemType: 1
+  actionType: 0
+  range: {x: 5, y: 4}
+  stackable: 1
+  image: {fileID: 8050135307594095940, guid: da924ad9936e840ae9fa305cf86248a0, type: 3}
