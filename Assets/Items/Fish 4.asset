@@ -18,3 +18,4 @@ MonoBehaviour:
   range: {x: 5, y: 4}
   stackable: 1
   image: {fileID: 6406061711972274550, guid: 7efeaec4ecdfa43ca9c0f45fbd9750b8, type: 3}
+  itemID: 6

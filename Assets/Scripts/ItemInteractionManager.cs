@@ -62,7 +62,11 @@ public class ItemInteractionManager : MonoBehaviour
             if (itemData.TryGetValue(item, out InteractableItem interactable))
             {
                 Debug.Log("Attempting to pick up item with ID: " + interactable.itemID); // Add debug
-                bool added = InventoryManager.instance.AddItem(DemoScript.instance.itemsToPickup[interactable.itemID]);
+                Item itemToAdd = DemoScript.instance.itemsToPickup[interactable.itemID];
+                itemToAdd.itemID = interactable.itemID;
+
+                bool added = InventoryManager.instance.AddItem(itemToAdd);
+
 
                 if (added)
                 {
@@ -86,7 +90,11 @@ public class ItemInteractionManager : MonoBehaviour
         if (usedItem != null)
         {
             Debug.Log("Used item: " + usedItem.name);
-            playerMovement.SwingSword();
+
+            if (usedItem.itemID == 0) // ← 0 is sword's ID from the Inspector
+            {
+                playerMovement.SwingSword();
+            }
         }
         else
         {
