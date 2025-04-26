@@ -15,6 +15,9 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI textComponent;
     public float textSpeed;
     public bool dialogueActive = false;
+    public bool infoReceived_Cook = false;
+    public bool infoReceived_Gar = false;
+    public bool infoReceived_Com = false;
     
     private int index;
 
@@ -63,6 +66,21 @@ public class Dialogue : MonoBehaviour
             if (npcDialogue.npcName == npcName)
             {
                 current = npcDialogue.lines;
+                if (npcDialogue.npcName == "Cook") 
+                {
+                    infoReceived_Cook = true;
+                    Debug.Log("Info received from cook");
+                }
+                else if (npcDialogue.npcName == "Gardener")
+                {
+                    infoReceived_Gar = true;
+                    Debug.Log("Info received from gardener");
+                }
+                else if (npcDialogue.npcName == "Commander")
+                {
+                    infoReceived_Com = true;
+                    Debug.Log("Info receioved from commander");
+                } 
                 break;
             }
         }
