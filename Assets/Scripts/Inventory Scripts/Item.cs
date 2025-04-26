@@ -27,10 +27,12 @@ public enum ItemType
 {
     BuildingBlock,
     Tool,
+    Weapon,
     Food
 }
 
 public enum ActionType
 {
-    Fight
+    Fight,
+    Eat
 }

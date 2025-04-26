@@ -2,19 +2,32 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
+    public static InventoryManager instance;
+    public Item[] startItems;
     public int maxStackedItems = 4;
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
 
     int selectedSlot = -1;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Start()
     {
         ChangeSelectedSlot(0);
+        foreach (var item in startItems)
+        {
+            AddItem(item);
+        }
     }
     private void Update()
     {
@@ -74,4 +87,35 @@ public class InventoryManager : MonoBehaviour
         InventoryItem inventoryItem = newItemGo.GetComponent<InventoryItem>();
         inventoryItem.InitialiseItem(item);
     }
+
+    public Item GetSelectedItem(bool use)
+    {
+        InventorySlot slot = inventorySlots[selectedSlot];
+        InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+        if (itemInSlot != null)
+        {
+            Item item = itemInSlot.item;
+            if (use == true)
+            {
+                if (item.itemType == ItemType.Food) // Only decrease count if it's food
+                {
+                    itemInSlot.count--;
+                    if (itemInSlot.count <= 0)
+                    {
+                        Destroy(itemInSlot.gameObject);
+                    }
+                    else
+                    {
+                        itemInSlot.RefreshCount();
+                    }
+                }
+                // If it's not food, just use the item without removing it
+            }
+
+            return item;
+        }
+
+        return null;
+    }
+
 }

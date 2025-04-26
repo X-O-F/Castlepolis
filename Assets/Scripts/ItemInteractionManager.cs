@@ -7,6 +7,7 @@ public class InteractableItem
 {
     public GameObject item;
     public float respawnDelay = 2f;
+    public int itemID; // Add an ID to map to Inventory items
 }
 
 public class ItemInteractionManager : MonoBehaviour
@@ -14,22 +15,24 @@ public class ItemInteractionManager : MonoBehaviour
     [SerializeField] private List<InteractableItem> interactableItems = new List<InteractableItem>();
     [SerializeField] private GameObject interactionPopup; // UI Popup (E Icon + Text)
 
-    private Dictionary<GameObject, float> itemDelays = new Dictionary<GameObject, float>();
+    private Dictionary<GameObject, InteractableItem> itemData = new Dictionary<GameObject, InteractableItem>();
 
     private bool isNearItem = false;
     private PlayerMovement playerMovement;
     private GameObject currentItem;
+
+
 
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
 
         // Populate dictionary from the inspector list
-        foreach (var item in interactableItems)
+        foreach (var interactable in interactableItems)
         {
-            if (item.item != null)
+            if (interactable.item != null)
             {
-                itemDelays[item.item] = item.respawnDelay;
+                itemData[interactable.item] = interactable;
             }
         }
 
@@ -43,22 +46,54 @@ public class ItemInteractionManager : MonoBehaviour
     {
         if (isNearItem && Input.GetKeyDown(KeyCode.E) && currentItem != null)
         {
-            InteractWithItem(currentItem);
+            PickupItem(currentItem);
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            UseSelectedItem();
         }
     }
 
-    private void InteractWithItem(GameObject item)
+    private void PickupItem(GameObject item)
     {
         if (item != null)
         {
-            item.SetActive(false);
-            interactionPopup.SetActive(false); // Hide popup after interacting
-            playerMovement.SwingSword();
+            if (itemData.TryGetValue(item, out InteractableItem interactable))
+            {
+                Debug.Log("Attempting to pick up item with ID: " + interactable.itemID); // Add debug
+                bool added = InventoryManager.instance.AddItem(DemoScript.instance.itemsToPickup[interactable.itemID]);
 
-            float delay = itemDelays.ContainsKey(item) ? itemDelays[item] : 2f;
-            StartCoroutine(RespawnItem(item, delay));
+                if (added)
+                {
+                    Debug.Log("Picked up item and added to inventory.");
+                    Destroy(item);
+                    interactionPopup.SetActive(false);
+                    StartCoroutine(RespawnItem(item, interactable.respawnDelay));
+                }
+                else
+                {
+                    Debug.Log("Inventory Full. Cannot pick up item.");
+                }
+            }
         }
     }
+
+
+    private void UseSelectedItem()
+    {
+        Item usedItem = InventoryManager.instance.GetSelectedItem(true);
+        if (usedItem != null)
+        {
+            Debug.Log("Used item: " + usedItem.name);
+            playerMovement.SwingSword();
+        }
+        else
+        {
+            Debug.Log("No item to use.");
+        }
+    }
+
 
     private IEnumerator RespawnItem(GameObject item, float delay)
     {
@@ -68,14 +103,15 @@ public class ItemInteractionManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (itemDelays.ContainsKey(other.gameObject)) // Check if it's a registered interactable item
+        Debug.Log("Triggered by: " + other.gameObject.name); // Add this line for debugging
+        if (itemData.ContainsKey(other.gameObject))
         {
             isNearItem = true;
             currentItem = other.gameObject;
 
             if (interactionPopup != null)
             {
-                interactionPopup.SetActive(true); // Show popup when near
+                interactionPopup.SetActive(true);
             }
         }
     }
@@ -89,7 +125,7 @@ public class ItemInteractionManager : MonoBehaviour
 
             if (interactionPopup != null)
             {
-                interactionPopup.SetActive(false); // Hide popup when leaving
+                interactionPopup.SetActive(false);
             }
         }
     }
