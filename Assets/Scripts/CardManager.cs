@@ -6,29 +6,37 @@ using TMPro;
 public class CardManager : MonoBehaviour
 {
     public Dialogue dialogueScript;
-    public TextMeshProUGUI textComponent;
-    public CardName name;
+    public TextMeshProUGUI cardNameText;
+    public GameObject cardsMenuBackground;
+    public GameObject card;
 
     void Awake() 
     {
         dialogueScript = FindObjectOfType<Dialogue>(true);
-        name = FindObjectOfType<CardName>(true);
+        card = FindObjectOfType<Card1>(true);
+        //name1 = FindObjectOfType<CardName1>(true);
+        //name1 = GameObject.Find("Card 1").GetComponent<CardName1>();
 
         if (dialogue != null)
         {
             Debug.Log("Dialogue.cs found");
         }
 
-        if (name != null)
+        if (card != null)
         {
-            Debug.Log("Found card name");
+            Debug.Log("Found card");
+
+            if (card == "Card1") 
+            {
+                cardNameText = CardName1.GetComponent<TextMeshProUGUI>();
+            }
         }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        //cardNameText = new TextMeshProUGUI;
     }
 
     // Update is called once per frame
@@ -38,11 +46,11 @@ public class CardManager : MonoBehaviour
         {
             if (dialogue.infoReceived_Cook)
             {
-                name.textComponent = "Cooking place";
+                Card1.cardNameText = "Cooking place";
             }
             else
             {
-                name.textComponent = "???";
+                Card1.cardNameText = "???";
             }
         }
     }
