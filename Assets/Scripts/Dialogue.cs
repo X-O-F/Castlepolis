@@ -79,7 +79,7 @@ public class Dialogue : MonoBehaviour
                 else if (npcDialogue.npcName == "Commander")
                 {
                     infoReceived_Com = true;
-                    Debug.Log("Info receioved from commander");
+                    Debug.Log("Info received from commander");
                 } 
                 break;
             }

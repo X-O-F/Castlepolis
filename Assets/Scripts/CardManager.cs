@@ -5,53 +5,132 @@ using TMPro;
 
 public class CardManager : MonoBehaviour
 {
+    public GameObject cardsMenu;
+
     public Dialogue dialogueScript;
-    public TextMeshProUGUI cardNameText;
-    public GameObject cardsMenuBackground;
-    public GameObject card;
+    public TextMeshProUGUI cookCardName;
+    public GameObject cookCard;
+
+    public TextMeshProUGUI gardenerCardName;
+    public GameObject gardenerCard;
+
+    public TextMeshProUGUI commanderCardName;
+    public GameObject commanderCard;
+
+    public bool isActive;
 
     void Awake() 
     {
         dialogueScript = FindObjectOfType<Dialogue>(true);
-        card = FindObjectOfType<Card1>(true);
-        //name1 = FindObjectOfType<CardName1>(true);
-        //name1 = GameObject.Find("Card 1").GetComponent<CardName1>();
 
-        if (dialogue != null)
+        cardsMenu = GameObject.Find("CardsMenu");
+        cookCard = GameObject.Find("CookCard");
+        gardenerCard = GameObject.Find("GardenerCard");
+        commanderCard = GameObject.Find("CommanderCard");
+        
+
+        if (dialogueScript != null)
         {
             Debug.Log("Dialogue.cs found");
         }
-
-        if (card != null)
+        else
         {
-            Debug.Log("Found card");
-
-            if (card == "Card1") 
-            {
-                cardNameText = CardName1.GetComponent<TextMeshProUGUI>();
-            }
+            Debug.Log("Dialogue.cs not found");
         }
-    }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        //cardNameText = new TextMeshProUGUI;
+        if (cardsMenu != null)
+        {
+            cardsMenu.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("CardsMenu not found");
+        }
+
+        if (cookCard != null)
+        {
+            cookCardName = cookCard.transform.Find("CookCardName").GetComponent<TextMeshProUGUI>();
+        }
+        else
+        {
+            Debug.Log("CookCard not found");
+        }
+
+        if (gardenerCard != null)
+        {
+            gardenerCardName = gardenerCard.transform.Find("GardenerCardName").GetComponent<TextMeshProUGUI>();
+        }
+        else
+        {
+            Debug.Log("GardenerCard not found");
+        }
+
+        if (commanderCard != null)
+        {
+            commanderCardName = commanderCard.transform.Find("CommanderCardName").GetComponent<TextMeshProUGUI>();
+        }
+        else
+        {
+            Debug.Log("CommanderCard not found");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Entered Update function");
         if (Input.GetKeyDown(KeyCode.C))
         {
-            if (dialogue.infoReceived_Cook)
+            if (cardsMenu != null && !isActive)
             {
-                Card1.cardNameText = "Cooking place";
+                cardsMenu.SetActive(true);
+                isActive = true;
+
+                Debug.Log("Menu is active");
+                UpdateCardNames();
+            }
+            else if (cardsMenu != null && isActive)
+            {
+                cardsMenu.SetActive(false);
+                isActive =false;
+
+                Debug.Log("Menu has been deactivated");
             }
             else
             {
-                Card1.cardNameText = "???";
+                Debug.Log("cardsMenu is null");
             }
         }
+    }
+
+    void UpdateCardNames()
+    {
+            if (dialogueScript.infoReceived_Cook)
+            {
+                cookCardName.text = "Cooking place";
+            }
+            else
+            {
+                cookCardName.text = "???";
+            }
+
+            if (dialogueScript.infoReceived_Gar)
+            {
+                gardenerCardName.text = "Garden";
+            }
+            else
+            {
+                gardenerCardName.text = "???";
+            }
+
+            if (dialogueScript.infoReceived_Com)
+            {
+                commanderCardName.text = "Castle";
+            }
+            else
+            {
+                commanderCardName.text = "???";
+            }
+
     }
 }

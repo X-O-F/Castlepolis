@@ -3774,7 +3774,7 @@ GameObject:
   - component: {fileID: 455598923}
   - component: {fileID: 455598922}
   m_Layer: 5
-  m_Name: CardName1
+  m_Name: CookCardName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3819,7 +3819,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Card 1 name
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4079,9 +4079,8 @@ GameObject:
   - component: {fileID: 461320259}
   - component: {fileID: 461320261}
   - component: {fileID: 461320260}
-  - component: {fileID: 461320262}
   m_Layer: 5
-  m_Name: Card 1
+  m_Name: CookCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4145,18 +4144,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461320258}
   m_CullTransparentMesh: 1
---- !u!114 &461320262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461320258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34e21260f7986491c8daf332ed08d8f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &465500285
 GameObject:
   m_ObjectHideFlags: 0
@@ -4792,6 +4779,7 @@ GameObject:
   - component: {fileID: 563680139}
   - component: {fileID: 563680142}
   - component: {fileID: 563680141}
+  - component: {fileID: 563680143}
   m_Layer: 0
   m_Name: Gardener
   m_TagString: Untagged
@@ -4916,6 +4904,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.75, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &563680143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563680138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 334b08cfeadcc4c6b8b11b84afc4c11f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionPopup: {fileID: 2052652094}
+  playerNearby: 0
+  dialogue: {fileID: 0}
+  npcName: Gardener
 --- !u!224 &570618044 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3935037481186296805, guid: 38c9644241ed06d49bf7041fde9752ad, type: 3}
@@ -5040,7 +5044,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &575991038
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6555,7 +6559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &692432920
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6916,7 +6920,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &718044358
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7120,7 +7124,7 @@ GameObject:
   - component: {fileID: 729499544}
   - component: {fileID: 729499543}
   m_Layer: 5
-  m_Name: CardName
+  m_Name: GardenerCardName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7165,7 +7169,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Card 2 name
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7348,7 +7352,7 @@ GameObject:
   - component: {fileID: 792371176}
   - component: {fileID: 792371175}
   m_Layer: 5
-  m_Name: Card 2
+  m_Name: GardenerCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77750,6 +77754,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e21260f7986491c8daf332ed08d8f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardsMenu: {fileID: 293069900}
+  dialogueScript: {fileID: 0}
+  cookCardName: {fileID: 455598922}
+  cookCard: {fileID: 461320258}
+  gardenerCardName: {fileID: 729499543}
+  gardenerCard: {fileID: 792371173}
+  commanderCardName: {fileID: 2015985692}
+  commanderCard: {fileID: 2107619558}
+  isActive: 0
 --- !u!1 &992575836
 GameObject:
   m_ObjectHideFlags: 0
@@ -85118,6 +85131,7 @@ GameObject:
   - component: {fileID: 1526191233}
   - component: {fileID: 1526191232}
   - component: {fileID: 1526191235}
+  - component: {fileID: 1526191236}
   m_Layer: 0
   m_Name: Commander
   m_TagString: Untagged
@@ -85263,6 +85277,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.2, y: 0.32}
   m_EdgeRadius: 0
+--- !u!114 &1526191236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526191230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 334b08cfeadcc4c6b8b11b84afc4c11f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionPopup: {fileID: 2052652094}
+  playerNearby: 0
+  dialogue: {fileID: 0}
+  npcName: Commander
 --- !u!1 &1581285148
 GameObject:
   m_ObjectHideFlags: 0
@@ -87822,7 +87852,7 @@ GameObject:
   - component: {fileID: 2015985693}
   - component: {fileID: 2015985692}
   m_Layer: 5
-  m_Name: CardName
+  m_Name: CommanderCardName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87867,7 +87897,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Card 3 name
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -88433,7 +88463,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.04, y: 0.07}
   m_AnchorMax: {x: 0.09, y: 0.16}
-  m_AnchoredPosition: {x: 0, y: -10.8307495}
+  m_AnchoredPosition: {x: 0, y: -10.830688}
   m_SizeDelta: {x: 34.53058, y: 31.530579}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2052652096
@@ -88658,7 +88688,7 @@ GameObject:
   - component: {fileID: 2107619561}
   - component: {fileID: 2107619560}
   m_Layer: 5
-  m_Name: Card 3
+  m_Name: CommanderCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
