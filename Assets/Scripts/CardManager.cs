@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class CardManager : MonoBehaviour
@@ -10,12 +11,28 @@ public class CardManager : MonoBehaviour
     public Dialogue dialogueScript;
     public TextMeshProUGUI cookCardName;
     public GameObject cookCard;
+    public Sprite cookCardActivated;
+    public Image cookCardImage;
 
     public TextMeshProUGUI gardenerCardName;
     public GameObject gardenerCard;
+    public Sprite gardenerCardActivated;
+    public Image gardenerCardImage;
 
     public TextMeshProUGUI commanderCardName;
     public GameObject commanderCard;
+    public Sprite commanderCardActivated;
+    public Image commanderCardImage;
+
+    private Color cardOpacity;
+
+    public GameObject cardInfo;
+    public Button cookCardButton;
+    public Button gardenerCardButton;
+    public Button commanderCardButton;
+    //public Button cardInfoButton;
+    public TextMeshProUGUI cardInfoText;
+    public bool infoActive = false;
 
     public bool isActive;
 
@@ -23,12 +40,17 @@ public class CardManager : MonoBehaviour
     {
         dialogueScript = FindObjectOfType<Dialogue>(true);
 
+        cardInfo = GameObject.Find("CardInfo");
         cardsMenu = GameObject.Find("CardsMenu");
         cookCard = GameObject.Find("CookCard");
         gardenerCard = GameObject.Find("GardenerCard");
         commanderCard = GameObject.Find("CommanderCard");
-        
 
+        cookCardButton.onClick.AddListener(() => ShowCardInfo("Cook"));
+        gardenerCardButton.onClick.AddListener(() => ShowCardInfo("Gardener"));
+        commanderCardButton.onClick.AddListener(() => ShowCardInfo("Commander"));
+        //cardInfoButton.onClick.AddListener(CloseInfoMenu);
+        
         if (dialogueScript != null)
         {
             Debug.Log("Dialogue.cs found");
@@ -73,6 +95,18 @@ public class CardManager : MonoBehaviour
         {
             Debug.Log("CommanderCard not found");
         }
+
+        if (cardInfo != null)
+        {
+            cardInfoText = cardInfo.transform.Find("CardInfoBackground/CardInfoText").GetComponent<TextMeshProUGUI>();
+            cardInfo.SetActive(false);
+            Debug.Log("CardInfo has been set to false");
+        }
+        else
+        {
+            Debug.Log("CardInfo not found");
+        }
+
     }
 
     // Update is called once per frame
@@ -92,7 +126,7 @@ public class CardManager : MonoBehaviour
             else if (cardsMenu != null && isActive)
             {
                 cardsMenu.SetActive(false);
-                isActive =false;
+                isActive = false;
 
                 Debug.Log("Menu has been deactivated");
             }
@@ -101,6 +135,11 @@ public class CardManager : MonoBehaviour
                 Debug.Log("cardsMenu is null");
             }
         }
+        else if (Input.GetKeyDown(KeyCode.I) && infoActive)
+        {
+            CloseInfoMenu();
+        }
+
     }
 
     void UpdateCardNames()
@@ -108,29 +147,108 @@ public class CardManager : MonoBehaviour
             if (dialogueScript.infoReceived_Cook)
             {
                 cookCardName.text = "Cooking place";
+                cookCardImage.sprite = cookCardActivated;
+                cardOpacity = cookCardImage.color;
+                cardOpacity.a = 1f;
+                cookCardImage.color = cardOpacity;
             }
             else
             {
                 cookCardName.text = "???";
+                cardOpacity = cookCardImage.color;
+                cardOpacity.a = 0.5f;
+                cookCardImage.color = cardOpacity;
             }
 
             if (dialogueScript.infoReceived_Gar)
             {
                 gardenerCardName.text = "Garden";
+                gardenerCardImage.sprite = gardenerCardActivated;
+                cardOpacity = gardenerCardImage.color;
+                cardOpacity.a = 1f;
+                gardenerCardImage.color = cardOpacity;
             }
             else
             {
                 gardenerCardName.text = "???";
+                cardOpacity = gardenerCardImage.color;
+                cardOpacity.a = 0.5f;
+                gardenerCardImage.color = cardOpacity;
             }
 
             if (dialogueScript.infoReceived_Com)
             {
                 commanderCardName.text = "Castle";
+                commanderCardImage.sprite = commanderCardActivated;
+                cardOpacity = commanderCardImage.color;
+                cardOpacity.a = 1f;
+                commanderCardImage.color = cardOpacity;
             }
             else
             {
                 commanderCardName.text = "???";
+                cardOpacity = commanderCardImage.color;
+                cardOpacity.a = 0.5f;
+                commanderCardImage.color = cardOpacity;
             }
 
+    }
+
+    public void ShowCardInfo(string npc) 
+    {
+        Debug.Log("Entered ShowCardInfo() function");
+        switch (npc)
+        {
+            case "Cook":
+                if (dialogueScript.infoReceived_Cook && !infoActive)
+                {
+                    Debug.Log("Cook card clicked - presenting info");
+                    cardInfo.SetActive(true);
+                    infoActive = true;
+                    cardInfoText.text = "Blah blahh info about cooking stuff -- CLOSE MENU WITH I";
+                }
+                else
+                {
+                    Debug.Log("Card is not unlocked yet");
+                }
+                break;
+
+            case "Gardener":
+                if (dialogueScript.infoReceived_Gar && !infoActive)
+                {
+                    Debug.Log("Gardener card clicked - presenting info");
+                    cardInfo.SetActive(true);
+                    infoActive = true;
+                    cardInfoText.text = "Blah info about garden -- CLOSE MENU WITH I";
+                }
+                else
+                {
+                    Debug.Log("Card is not unlocked yet");
+                }
+                break;
+
+            case "Commander":
+                if (dialogueScript.infoReceived_Com && !infoActive)
+                {
+                    Debug.Log("Commander card clicked - presenting info");
+                    cardInfo.SetActive(true);
+                    infoActive = true;
+                    cardInfoText.text = "Blah info about castle -- CLOSE MENU WITH I";
+                }  
+                else
+                {
+                   Debug.Log("Card is not unlocked yet");
+                }   
+                break;
+
+        }
+
+    }
+
+    public void CloseInfoMenu()
+    {
+        Debug.Log("Entered CloseInfoMenu()");      
+        cardInfo.SetActive(false);
+        infoActive = false;
     }
 }
