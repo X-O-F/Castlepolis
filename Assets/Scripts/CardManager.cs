@@ -30,11 +30,11 @@ public class CardManager : MonoBehaviour
     public Button cookCardButton;
     public Button gardenerCardButton;
     public Button commanderCardButton;
-    //public Button cardInfoButton;
+    public Button cardInfoCloseButton;
+    public Button cardsMenuCloseButton;
     public TextMeshProUGUI cardInfoText;
     public bool infoActive = false;
-
-    public bool isActive;
+    public bool cardsActive = false;
 
     void Awake() 
     {
@@ -49,8 +49,9 @@ public class CardManager : MonoBehaviour
         cookCardButton.onClick.AddListener(() => ShowCardInfo("Cook"));
         gardenerCardButton.onClick.AddListener(() => ShowCardInfo("Gardener"));
         commanderCardButton.onClick.AddListener(() => ShowCardInfo("Commander"));
-        //cardInfoButton.onClick.AddListener(CloseInfoMenu);
-        
+        cardInfoCloseButton.onClick.AddListener(CloseInfoMenu);
+        cardsMenuCloseButton.onClick.AddListener(CloseCardsMenu);
+
         if (dialogueScript != null)
         {
             Debug.Log("Dialogue.cs found");
@@ -106,47 +107,34 @@ public class CardManager : MonoBehaviour
         {
             Debug.Log("CardInfo not found");
         }
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Entered Update function");
+        //Debug.Log("Entered Update function");
         if (Input.GetKeyDown(KeyCode.C))
         {
-            if (cardsMenu != null && !isActive)
+            if (cardsMenu != null && !cardsActive)
             {
                 cardsMenu.SetActive(true);
-                isActive = true;
+                cardsActive = true;
 
                 Debug.Log("Menu is active");
                 UpdateCardNames();
             }
-            else if (cardsMenu != null && isActive)
-            {
-                cardsMenu.SetActive(false);
-                isActive = false;
-
-                Debug.Log("Menu has been deactivated");
-            }
-            else
+            else if (cardsMenu == null)
             {
                 Debug.Log("cardsMenu is null");
             }
         }
-        else if (Input.GetKeyDown(KeyCode.I) && infoActive)
-        {
-            CloseInfoMenu();
-        }
-
     }
 
     void UpdateCardNames()
     {
             if (dialogueScript.infoReceived_Cook)
             {
-                cookCardName.text = "Cooking place";
+                cookCardName.text = "Restaurant";
                 cookCardImage.sprite = cookCardActivated;
                 cardOpacity = cookCardImage.color;
                 cardOpacity.a = 1f;
@@ -205,7 +193,7 @@ public class CardManager : MonoBehaviour
                     Debug.Log("Cook card clicked - presenting info");
                     cardInfo.SetActive(true);
                     infoActive = true;
-                    cardInfoText.text = "Blah blahh info about cooking stuff -- CLOSE MENU WITH I";
+                    cardInfoText.text = "Info about cooking stuff";
                 }
                 else
                 {
@@ -219,7 +207,7 @@ public class CardManager : MonoBehaviour
                     Debug.Log("Gardener card clicked - presenting info");
                     cardInfo.SetActive(true);
                     infoActive = true;
-                    cardInfoText.text = "Blah info about garden -- CLOSE MENU WITH I";
+                    cardInfoText.text = "Info about garden";
                 }
                 else
                 {
@@ -233,7 +221,7 @@ public class CardManager : MonoBehaviour
                     Debug.Log("Commander card clicked - presenting info");
                     cardInfo.SetActive(true);
                     infoActive = true;
-                    cardInfoText.text = "Blah info about castle -- CLOSE MENU WITH I";
+                    cardInfoText.text = "Info about castle";
                 }  
                 else
                 {
@@ -245,10 +233,17 @@ public class CardManager : MonoBehaviour
 
     }
 
+    public void CloseCardsMenu()
+    {
+        cardsMenu.SetActive(false);
+        cardsActive = false;
+        Debug.Log("Closed CardsMenu");
+    }
+
     public void CloseInfoMenu()
     {
-        Debug.Log("Entered CloseInfoMenu()");      
         cardInfo.SetActive(false);
         infoActive = false;
+        Debug.Log("Closed CardInfo menu");
     }
 }
