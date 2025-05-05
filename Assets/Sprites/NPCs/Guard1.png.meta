@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 41eba62f9ac5745549a52adc72f643b3
+guid: 3f00cf3c290304ec3956d4806d939303
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -102,19 +102,6 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -123,8 +110,8 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 95
-        width: 24
+        y: 96
+        width: 21
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -144,9 +131,9 @@ TextureImporter:
       name: Guard1_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 63
-        width: 24
+        x: 21
+        y: 96
+        width: 21
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -166,10 +153,10 @@ TextureImporter:
       name: Guard1_2
       rect:
         serializedVersion: 2
-        x: 39
-        y: 95
-        width: 25
-        height: 31
+        x: 42
+        y: 96
+        width: 21
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,11 +171,55 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Guard1_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8f66d3f880e842fda57ac87c9712c51
+      internalID: -1610548589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guard1_4
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 64
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 855b7cfd760414cf4b5d641ac6e48ff3
+      internalID: 136006807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f3c8818a5c0084d61a20f391054573ea
     internalID: 0
     vertices: []
     indices: 
@@ -201,6 +232,8 @@ TextureImporter:
       Guard1_0: -2198364005616956892
       Guard1_1: 1038700433342364833
       Guard1_2: -7897800632916279508
+      Guard1_3: -1610548589
+      Guard1_4: 136006807
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

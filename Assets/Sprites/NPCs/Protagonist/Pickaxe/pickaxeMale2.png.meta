@@ -178,7 +178,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -192,7 +192,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -216,7 +216,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -1309,7 +1309,55 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pickaxeMale2_0: 5021508713173240639
+      pickaxeMale2_1: -6802550104246078638
+      pickaxeMale2_10: 836866320017718107
+      pickaxeMale2_11: -908235672874248434
+      pickaxeMale2_12: 8968526009387777333
+      pickaxeMale2_13: 5403276906702235671
+      pickaxeMale2_14: 3205037942619643413
+      pickaxeMale2_15: -8998247244618148494
+      pickaxeMale2_16: 5560743939487013833
+      pickaxeMale2_17: -7145031139234763435
+      pickaxeMale2_18: -5762584547046518946
+      pickaxeMale2_19: -2309302430584096207
+      pickaxeMale2_2: 5248963864234551351
+      pickaxeMale2_20: 5005927557840421752
+      pickaxeMale2_21: 5227155442200693543
+      pickaxeMale2_22: -2280132949382239071
+      pickaxeMale2_23: -1667969503922862450
+      pickaxeMale2_24: -4557214763277438467
+      pickaxeMale2_25: 1809550352842102684
+      pickaxeMale2_26: 5981296401910653779
+      pickaxeMale2_27: 8052435940303201122
+      pickaxeMale2_28: -1142208240058307724
+      pickaxeMale2_29: 1090378474277968973
+      pickaxeMale2_3: 7645842101262857859
+      pickaxeMale2_30: -4377965958388589335
+      pickaxeMale2_31: -5598009720352145483
+      pickaxeMale2_32: -2905153378583891295
+      pickaxeMale2_33: 3198734695346637358
+      pickaxeMale2_34: -4796255470739069762
+      pickaxeMale2_35: 7799078782791247580
+      pickaxeMale2_36: -3655965938047135567
+      pickaxeMale2_37: -285033708079799322
+      pickaxeMale2_38: -2577912221087573565
+      pickaxeMale2_39: 4304233466758156433
+      pickaxeMale2_4: -5330537638238926424
+      pickaxeMale2_40: 6638441059499836075
+      pickaxeMale2_41: 980310727820157863
+      pickaxeMale2_42: 4543194811140277354
+      pickaxeMale2_43: 4548282507189501709
+      pickaxeMale2_44: 4816785663259112538
+      pickaxeMale2_45: 8132672470846814076
+      pickaxeMale2_46: -696882521515662342
+      pickaxeMale2_47: -4690903280842188084
+      pickaxeMale2_5: 3057289949146305120
+      pickaxeMale2_6: 6866271618611678726
+      pickaxeMale2_7: -7045646899536263865
+      pickaxeMale2_8: 9013159453598103930
+      pickaxeMale2_9: -5189413097764142350
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
