@@ -28,21 +28,21 @@ AnimationClip:
       value: {fileID: -2020787162022501153, guid: 0f70034e4c43f4fe2a1f29ff1184ce14, type: 3}
     - time: 0.5
       value: {fileID: 2891599965695039113, guid: d5c432c35868b40b487e3afa83ad7c57, type: 3}
-    - time: 0.75
+    - time: 0.625
       value: {fileID: -1485008328511046137, guid: 645abf16d9cc6438aaac3c020cd218d6, type: 3}
-    - time: 1
+    - time: 0.75
       value: {fileID: 6461214398757640956, guid: d5c432c35868b40b487e3afa83ad7c57, type: 3}
+    - time: 0.875
+      value: {fileID: 870734926911653193, guid: 645abf16d9cc6438aaac3c020cd218d6, type: 3}
+    - time: 1
+      value: {fileID: 2891599965695039113, guid: d5c432c35868b40b487e3afa83ad7c57, type: 3}
+    - time: 1.125
+      value: {fileID: -1485008328511046137, guid: 645abf16d9cc6438aaac3c020cd218d6, type: 3}
     - time: 1.25
+      value: {fileID: 6461214398757640956, guid: d5c432c35868b40b487e3afa83ad7c57, type: 3}
+    - time: 1.375
       value: {fileID: 870734926911653193, guid: 645abf16d9cc6438aaac3c020cd218d6, type: 3}
     - time: 1.5
-      value: {fileID: 2891599965695039113, guid: d5c432c35868b40b487e3afa83ad7c57, type: 3}
-    - time: 1.75
-      value: {fileID: -1485008328511046137, guid: 645abf16d9cc6438aaac3c020cd218d6, type: 3}
-    - time: 2
-      value: {fileID: 6461214398757640956, guid: d5c432c35868b40b487e3afa83ad7c57, type: 3}
-    - time: 2.25
-      value: {fileID: 870734926911653193, guid: 645abf16d9cc6438aaac3c020cd218d6, type: 3}
-    - time: 2.5
       value: {fileID: 2891599965695039113, guid: d5c432c35868b40b487e3afa83ad7c57, type: 3}
     attribute: m_Sprite
     path: 
@@ -83,7 +83,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 2.625
+    m_StopTime: 1.625
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -102,4 +102,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 1.5
+    functionName: EndSwing
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

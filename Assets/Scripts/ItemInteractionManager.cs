@@ -73,7 +73,7 @@ public class ItemInteractionManager : MonoBehaviour
                     Debug.Log("Picked up item and added to inventory.");
                     Destroy(item);
                     interactionPopup.SetActive(false);
-                    StartCoroutine(RespawnItem(item, interactable.respawnDelay));
+                    //StartCoroutine(RespawnItem(item, interactable.respawnDelay));
                 }
                 else
                 {
@@ -94,6 +94,10 @@ public class ItemInteractionManager : MonoBehaviour
             if (usedItem.itemID == 0) // ← 0 is sword's ID from the Inspector
             {
                 playerMovement.SwingSword();
+            }
+            else if (usedItem.itemID == 1) // 1 is pickaxe ID
+            {
+                playerMovement.SwingPickaxe();
             }
         }
         else

@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private const string _LAST_HORIZONTAL = "LastHorizontal";
     private const string _LAST_VERTICAL = "LastVertical";
     private const string _SWING_SWORD = "SwingSword";
+    private const string _SWING_PICKAXE = "SwingPickaxe";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -64,6 +65,25 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("swing");
     }
 
+    public void SwingPickaxe()
+    {
+        if (_isSwinging) return; // Prevents multiple swings
+        _isSwinging = true;
+        _canMove = false;
+
+        _rb.linearVelocity = Vector2.zero; // Instantly stop any movement
+        _animator.SetFloat(_HORIZONTAL, 0);
+        _animator.SetFloat(_VERTICAL, 0);
+        _animator.SetBool(_IS_SPRINTING, false);
+
+        _animator.SetTrigger(_SWING_PICKAXE);
+        Debug.Log("swing");
+    }
+
+    public void test()
+    {
+        Debug.Log("hi");
+    }
     public void EndSwing() // Called via Animation Event when the swing ends
     {
         Debug.Log("end swing");
