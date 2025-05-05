@@ -27,11 +27,6 @@ public class CardManager : MonoBehaviour
     private Color cardOpacity;
 
     public GameObject cardInfo;
-    public Button cookCardButton;
-    public Button gardenerCardButton;
-    public Button commanderCardButton;
-    public Button cardInfoCloseButton;
-    public Button cardsMenuCloseButton;
     public TextMeshProUGUI cardInfoText;
     public bool infoActive = false;
     public bool cardsActive = false;
@@ -39,18 +34,6 @@ public class CardManager : MonoBehaviour
     void Awake() 
     {
         dialogueScript = FindObjectOfType<Dialogue>(true);
-
-        cardInfo = GameObject.Find("CardInfo");
-        cardsMenu = GameObject.Find("CardsMenu");
-        cookCard = GameObject.Find("CookCard");
-        gardenerCard = GameObject.Find("GardenerCard");
-        commanderCard = GameObject.Find("CommanderCard");
-
-        cookCardButton.onClick.AddListener(() => ShowCardInfo("Cook"));
-        gardenerCardButton.onClick.AddListener(() => ShowCardInfo("Gardener"));
-        commanderCardButton.onClick.AddListener(() => ShowCardInfo("Commander"));
-        cardInfoCloseButton.onClick.AddListener(CloseInfoMenu);
-        cardsMenuCloseButton.onClick.AddListener(CloseCardsMenu);
 
         if (dialogueScript != null)
         {
@@ -123,6 +106,11 @@ public class CardManager : MonoBehaviour
                 Debug.Log("Menu is active");
                 UpdateCardNames();
             }
+            else if (cardsMenu != null && cardsActive)
+            {
+                CloseInfoMenu();
+                CloseCardsMenu();
+            }
             else if (cardsMenu == null)
             {
                 Debug.Log("cardsMenu is null");
@@ -192,6 +180,7 @@ public class CardManager : MonoBehaviour
                 {
                     Debug.Log("Cook card clicked - presenting info");
                     cardInfo.SetActive(true);
+                    cardsMenu.SetActive(false);
                     infoActive = true;
                     cardInfoText.text = "Info about cooking stuff";
                 }
@@ -206,6 +195,7 @@ public class CardManager : MonoBehaviour
                 {
                     Debug.Log("Gardener card clicked - presenting info");
                     cardInfo.SetActive(true);
+                    cardsMenu.SetActive(false);
                     infoActive = true;
                     cardInfoText.text = "Info about garden";
                 }
@@ -220,6 +210,7 @@ public class CardManager : MonoBehaviour
                 {
                     Debug.Log("Commander card clicked - presenting info");
                     cardInfo.SetActive(true);
+                    cardsMenu.SetActive(false);
                     infoActive = true;
                     cardInfoText.text = "Info about castle";
                 }  
@@ -243,6 +234,7 @@ public class CardManager : MonoBehaviour
     public void CloseInfoMenu()
     {
         cardInfo.SetActive(false);
+        cardsMenu.SetActive(true);
         infoActive = false;
         Debug.Log("Closed CardInfo menu");
     }

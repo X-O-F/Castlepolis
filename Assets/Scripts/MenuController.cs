@@ -6,6 +6,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject menuPanel;
     [SerializeField] private GameObject mainPanel;
     [SerializeField] private GameObject helpPanel;
+    [SerializeField] private GameObject teleportPanel;
 
     private bool isPaused = false;
 
@@ -27,6 +28,7 @@ public class MenuController : MonoBehaviour
     {
         mainPanel.SetActive(true);
         helpPanel.SetActive(false);
+        teleportPanel.SetActive(false);
     }
 
     public void ShowHelp()
@@ -35,6 +37,12 @@ public class MenuController : MonoBehaviour
         helpPanel.SetActive(true);
     }
     
+    public void ShowTeleport()
+    {
+        mainPanel.SetActive(false);
+        teleportPanel.SetActive(true);
+    }
+
     public void QuitGame()
     {
         Application.Quit();
