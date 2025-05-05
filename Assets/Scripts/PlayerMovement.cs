@@ -47,7 +47,6 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetFloat(_LAST_HORIZONTAL, _movement.x);
             _animator.SetFloat(_LAST_VERTICAL, _movement.y);
         }
-         
     }
 
     public void SwingSword()
