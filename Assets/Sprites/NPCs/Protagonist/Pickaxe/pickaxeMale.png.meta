@@ -1,0 +1,1317 @@
+fileFormatVersion: 2
+guid: 87826bd2179aa4947bed61247de7fff4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7219605459047553271
+    second: pickaxeMale_0
+  - first:
+      213: -5781738841317643001
+    second: pickaxeMale_1
+  - first:
+      213: 3800620481618765695
+    second: pickaxeMale_2
+  - first:
+      213: -1668744233693993241
+    second: pickaxeMale_3
+  - first:
+      213: 1389627893029193931
+    second: pickaxeMale_4
+  - first:
+      213: 8868947438528941432
+    second: pickaxeMale_5
+  - first:
+      213: 6512605267820721548
+    second: pickaxeMale_6
+  - first:
+      213: 1893873700435717147
+    second: pickaxeMale_7
+  - first:
+      213: -3203604192717246505
+    second: pickaxeMale_8
+  - first:
+      213: 5051341063459020981
+    second: pickaxeMale_9
+  - first:
+      213: -8310148380173467939
+    second: pickaxeMale_10
+  - first:
+      213: 7306517306198693532
+    second: pickaxeMale_11
+  - first:
+      213: -5606621485997057796
+    second: pickaxeMale_12
+  - first:
+      213: 8943230987530848052
+    second: pickaxeMale_13
+  - first:
+      213: 6372908596607192208
+    second: pickaxeMale_14
+  - first:
+      213: -8072819089391974940
+    second: pickaxeMale_15
+  - first:
+      213: 6444555517581687161
+    second: pickaxeMale_16
+  - first:
+      213: -4856759753958139922
+    second: pickaxeMale_17
+  - first:
+      213: -512806683383925896
+    second: pickaxeMale_18
+  - first:
+      213: -7579730932237928594
+    second: pickaxeMale_19
+  - first:
+      213: -454721684543849662
+    second: pickaxeMale_20
+  - first:
+      213: 3607267349741641814
+    second: pickaxeMale_21
+  - first:
+      213: -1446493586609567349
+    second: pickaxeMale_22
+  - first:
+      213: 3049657875183046474
+    second: pickaxeMale_23
+  - first:
+      213: -2114173862311808308
+    second: pickaxeMale_24
+  - first:
+      213: -7612847703463130408
+    second: pickaxeMale_25
+  - first:
+      213: 4000850842440961934
+    second: pickaxeMale_26
+  - first:
+      213: 7296000637380257265
+    second: pickaxeMale_27
+  - first:
+      213: -223447130373582525
+    second: pickaxeMale_28
+  - first:
+      213: 1081375338534057520
+    second: pickaxeMale_29
+  - first:
+      213: -5106202092393568026
+    second: pickaxeMale_30
+  - first:
+      213: -4619035384208940928
+    second: pickaxeMale_31
+  - first:
+      213: 2587239939898166376
+    second: pickaxeMale_32
+  - first:
+      213: 7469921408127295082
+    second: pickaxeMale_33
+  - first:
+      213: -4345895965186261789
+    second: pickaxeMale_34
+  - first:
+      213: 1476212204656322593
+    second: pickaxeMale_35
+  - first:
+      213: 9148721551374492378
+    second: pickaxeMale_36
+  - first:
+      213: 6439476218761571981
+    second: pickaxeMale_37
+  - first:
+      213: 4037610642647594522
+    second: pickaxeMale_38
+  - first:
+      213: 1058292042057281133
+    second: pickaxeMale_39
+  - first:
+      213: 5095631842707904491
+    second: pickaxeMale_40
+  - first:
+      213: -698453904002369773
+    second: pickaxeMale_41
+  - first:
+      213: 7550984030802322425
+    second: pickaxeMale_42
+  - first:
+      213: -1736045501136876311
+    second: pickaxeMale_43
+  - first:
+      213: -815228431171211599
+    second: pickaxeMale_44
+  - first:
+      213: -1763980427823231391
+    second: pickaxeMale_45
+  - first:
+      213: -8840368833154687465
+    second: pickaxeMale_46
+  - first:
+      213: -2438413351966780720
+    second: pickaxeMale_47
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pickaxeMale_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 340
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 907effa061fcecb90800000000000000
+      internalID: -7219605459047553271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 339
+        width: 18
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70dee23282323cfa0800000000000000
+      internalID: -5781738841317643001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_2
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 338
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f77e5f401348eb430800000000000000
+      internalID: 3800620481618765695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_3
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 339
+        width: 14
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e620b9f5fd67d8e0800000000000000
+      internalID: -1668744233693993241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_4
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 338
+        width: 14
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc8caf5c433f84310800000000000000
+      internalID: 1389627893029193931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 337
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87dc025a4b4d41b70800000000000000
+      internalID: 8868947438528941432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_6
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 324
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c85bace5cfb616a50800000000000000
+      internalID: 6512605267820721548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_7
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 324
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1ceceba814684a10800000000000000
+      internalID: 1893873700435717147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_8
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 275
+        width: 25
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dfe22cc5f28a83d0800000000000000
+      internalID: -3203604192717246505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_9
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 275
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b0a1de1fe7f91640800000000000000
+      internalID: 5051341063459020981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_10
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 276
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddef8f8c31c6cac80800000000000000
+      internalID: -8310148380173467939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_11
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 276
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c96973547c6f56560800000000000000
+      internalID: 7306517306198693532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_12
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 276
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf89211b6774132b0800000000000000
+      internalID: -5606621485997057796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_13
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 275
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 437ca0c233dbc1c70800000000000000
+      internalID: 8943230987530848052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_14
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 270
+        width: 23
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09c0ece7a9e117850800000000000000
+      internalID: 6372908596607192208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_15
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 270
+        width: 23
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e58cc05fc597ff80800000000000000
+      internalID: -8072819089391974940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_16
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 211
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9797db83919af6950800000000000000
+      internalID: 6444555517581687161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_17
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 212
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee759e96cb2599cb0800000000000000
+      internalID: -4856759753958139922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_18
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 212
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8737476d90522e8f0800000000000000
+      internalID: -512806683383925896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_19
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 212
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e67fae250e26fc690800000000000000
+      internalID: -7579730932237928594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_20
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 212
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24bb811890180b9f0800000000000000
+      internalID: -454721684543849662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_21
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 212
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 650273fda869f0230800000000000000
+      internalID: 3607267349741641814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_22
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 212
+        width: 24
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8981403fb50debe0800000000000000
+      internalID: -1446493586609567349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_23
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 212
+        width: 24
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4f02c00eaf825a20800000000000000
+      internalID: 3049657875183046474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_24
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 148
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc23d77d212f8a2e0800000000000000
+      internalID: -2114173862311808308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_25
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 148
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8da8ee9295bb95690800000000000000
+      internalID: -7612847703463130408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_26
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 148
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8f040fc4a0e58730800000000000000
+      internalID: 4000850842440961934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_27
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 148
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f5e2108ce9904560800000000000000
+      internalID: 7296000637380257265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_28
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 147
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3419000d40826ecf0800000000000000
+      internalID: -223447130373582525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_29
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 148
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 036b03a1421d10f00800000000000000
+      internalID: 1081375338534057520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_30
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 148
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e8668330402329b0800000000000000
+      internalID: -5106202092393568026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_31
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 148
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 080244f6ac3e5efb0800000000000000
+      internalID: -4619035384208940928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_32
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 83
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86c455e7409b7e320800000000000000
+      internalID: 2587239939898166376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_33
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 84
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6e538f71fd7aa760800000000000000
+      internalID: 7469921408127295082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_34
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 84
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ecf44c25a640b3c0800000000000000
+      internalID: -4345895965186261789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_35
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 84
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 128e2a7cd2f8c7410800000000000000
+      internalID: 1476212204656322593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_36
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 84
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad223aa67c9c6fe70800000000000000
+      internalID: 9148721551374492378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_37
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 84
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8eebdec08d9d5950800000000000000
+      internalID: 6439476218761571981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_38
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 84
+        width: 24
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a16b850cc79780830800000000000000
+      internalID: 4037610642647594522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_39
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 84
+        width: 24
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6e6273510fcfae00800000000000000
+      internalID: 1058292042057281133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_40
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 19
+        width: 15
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be716c2c92257b640800000000000000
+      internalID: 5095631842707904491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_41
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 19
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31734f7ffd79e46f0800000000000000
+      internalID: -698453904002369773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_42
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 20
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f3ae9c18fb7ac860800000000000000
+      internalID: 7550984030802322425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_43
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 20
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ec42de80d358e7e0800000000000000
+      internalID: -1736045501136876311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_44
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 20
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bead35af0abfa4f0800000000000000
+      internalID: -815228431171211599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_45
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 19
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16ecad895251587e0800000000000000
+      internalID: -1763980427823231391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_46
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 14
+        width: 23
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71e51607263b05580800000000000000
+      internalID: -8840368833154687465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeMale_47
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 14
+        width: 23
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d25374c9f3092ed0800000000000000
+      internalID: -2438413351966780720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
