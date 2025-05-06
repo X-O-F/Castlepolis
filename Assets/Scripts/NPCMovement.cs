@@ -6,10 +6,8 @@ public class NPCMovement : MonoBehaviour
     public float moveSpeed = 2f;
     public float minMoveTime = 5f;
     public float maxMoveTime = 8f;
-    public float waitTimeOnFlip = 1f;
 
     private Vector3 targetDirection;
-    private bool isMoving = false;
     private Rigidbody2D rb;
     private Animator animator;
 
@@ -23,10 +21,7 @@ public class NPCMovement : MonoBehaviour
 
     void Update()
     {
-        if (isMoving)
-        {
-            MoveNPC();
-        }
+        MoveNPC();
     }
 
     private void SetNewTargetDirection()
@@ -41,39 +36,32 @@ public class NPCMovement : MonoBehaviour
             case 3: targetDirection = Vector3.down; break;   // Down
         }
 
+        // Randomize move time for each direction change
         float moveTime = Random.Range(minMoveTime, maxMoveTime);
-        StartCoroutine(MoveAndPause(moveTime));
+        StartCoroutine(ChangeDirection(moveTime));
     }
 
     private void MoveNPC()
     {
         transform.position += targetDirection * moveSpeed * Time.deltaTime;
 
-        // Set Animator parameters
+        int moveX = Mathf.RoundToInt(targetDirection.x);
+        int moveY = Mathf.RoundToInt(targetDirection.y);
+        Debug.Log("move Y:" + moveY);
+
         if (animator != null)
         {
-            animator.SetFloat("MoveX", targetDirection.x);
-            animator.SetFloat("MoveY", targetDirection.y);
+            animator.SetFloat("MoveX", moveX);
+            animator.SetFloat("MoveY", moveY);
         }
     }
 
-    private IEnumerator MoveAndPause(float moveTime)
+    private IEnumerator ChangeDirection(float moveTime)
     {
-        isMoving = true;
-
+        // Wait for the moveTime duration before changing direction
         yield return new WaitForSeconds(moveTime);
 
-        isMoving = false;
-
-        // Stop movement → reset Animator parameters
-        if (animator != null)
-        {
-            animator.SetFloat("MoveX", 0);
-            animator.SetFloat("MoveY", 0);
-        }
-
-        yield return new WaitForSeconds(waitTimeOnFlip);
-
+        // After the time is up, change direction
         SetNewTargetDirection();
     }
 }
