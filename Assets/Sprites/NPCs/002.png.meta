@@ -1,16 +1,31 @@
 fileFormatVersion: 2
-guid: 0497c7cc56700410a9473b7f1cc4f25f
+guid: a3187faaa7aae4c0bbf4eb8c6afb80a9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1972905822827115205
-    second: cook_0
+      213: 7417498029127908629
+    second: 002_0
   - first:
-      213: 8817812644356452997
-    second: cook_1
+      213: 4440353514750019237
+    second: 002_1
   - first:
-      213: 515172078919599564
-    second: cook_2
+      213: -8045800707232473503
+    second: 002_2
+  - first:
+      213: 8701309638641752994
+    second: 002_3
+  - first:
+      213: 4187577688158176072
+    second: 002_4
+  - first:
+      213: -2669798006401443879
+    second: 002_5
+  - first:
+      213: -1740119621459361255
+    second: 002_6
+  - first:
+      213: -5055897080092931512
+    second: 002_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -43,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -57,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -81,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,13 +121,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cook_0
+      name: 002_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
+        y: 31
         width: 20
-        height: 32
+        height: 97
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,18 +136,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5c2f8e8946b216b10800000000000000
-      internalID: 1972905822827115205
+      spriteID: 51d345c682f30f660800000000000000
+      internalID: 7417498029127908629
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cook_1
+      name: 002_1
       rect:
         serializedVersion: 2
         x: 20
-        y: 96
+        y: 95
         width: 20
         height: 32
       alignment: 0
@@ -143,18 +158,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 58270da91e92f5a70800000000000000
-      internalID: 8817812644356452997
+      spriteID: 5a605d3eefd4f9d30800000000000000
+      internalID: 4440353514750019237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cook_2
+      name: 002_2
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 63
+        width: 17
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16e52df92e2975090800000000000000
+      internalID: -8045800707232473503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 002_3
       rect:
         serializedVersion: 2
         x: 40
-        y: 96
+        y: 31
+        width: 20
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ab9cebc30341c870800000000000000
+      internalID: 8701309638641752994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 002_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
         width: 20
         height: 32
       alignment: 0
@@ -165,8 +224,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cc5c33ab642462700800000000000000
-      internalID: 515172078919599564
+      spriteID: 843050c78b34d1a30800000000000000
+      internalID: 4187577688158176072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 002_5
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 0
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d7556ebbd8f2fad0800000000000000
+      internalID: -2669798006401443879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 002_6
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 31
+        width: 17
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9124a308c6ad9d7e0800000000000000
+      internalID: -1740119621459361255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 002_7
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84a40289468d5d9b0800000000000000
+      internalID: -5055897080092931512
       vertices: []
       indices: 
       edges: []
@@ -175,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ce89af391b42e4de08e0e0c739b834e8
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -184,10 +309,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      cook_0: 1972905822827115205
-      cook_1: 8817812644356452997
-      cook_2: 515172078919599564
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
