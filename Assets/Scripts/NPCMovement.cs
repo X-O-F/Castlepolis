@@ -47,7 +47,6 @@ public class NPCMovement : MonoBehaviour
 
         int moveX = Mathf.RoundToInt(targetDirection.x);
         int moveY = Mathf.RoundToInt(targetDirection.y);
-        Debug.Log("move Y:" + moveY);
 
         if (animator != null)
         {

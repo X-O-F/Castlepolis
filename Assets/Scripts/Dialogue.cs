@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class Dialogue : MonoBehaviour
     public bool infoReceived_Cook = false;
     public bool infoReceived_Gar = false;
     public bool infoReceived_Com = false;
+    public Button yesButton, noButton;
+
+    private System.Action yesAction, noAction;
     
     private int index;
 
@@ -97,6 +101,38 @@ public class Dialogue : MonoBehaviour
         index = 0;
         dialogueActive = true;
         StartCoroutine(TypeLine());
+    }
+
+    public void StartCustomDialogue(string npcName, string message, System.Action onYes, System.Action onNo)
+    {
+        dialogueActive = true;
+        gameObject.SetActive(true);
+
+        textComponent.text = message;
+        //nameText.text = npcName; todo
+
+        yesAction = onYes;
+        noAction = onNo;
+
+        yesButton.gameObject.SetActive(true);
+        noButton.gameObject.SetActive(true);
+
+        yesButton.onClick.RemoveAllListeners();
+        noButton.onClick.RemoveAllListeners();
+
+        yesButton.onClick.AddListener(() => { yesAction?.Invoke(); HideOptions(); });
+        noButton.onClick.AddListener(() => { noAction?.Invoke(); HideOptions(); });
+    }
+
+    public void ShowLine(string message)
+    {
+        textComponent.text = message;
+    }
+
+    void HideOptions()
+    {
+        yesButton.gameObject.SetActive(false);
+        noButton.gameObject.SetActive(false);
     }
 
     IEnumerator TypeLine()
