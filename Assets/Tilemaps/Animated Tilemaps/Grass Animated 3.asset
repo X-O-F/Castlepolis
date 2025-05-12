@@ -10,11 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
-  m_Name: Grass2
+  m_Name: Grass Animated 3
   m_EditorClassIdentifier: 
-  m_AnimatedSprites:
-  - {fileID: 1622051996, guid: ff01c23be9eaf42e889ae598ca9163fd, type: 3}
-  - {fileID: 1819151168, guid: ff01c23be9eaf42e889ae598ca9163fd, type: 3}
+  m_AnimatedSprites: []
   m_MinSpeed: 1
   m_MaxSpeed: 1
   m_AnimationStartTime: 0

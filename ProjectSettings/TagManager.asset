@@ -54,6 +54,9 @@ TagManager:
   - name: Foreground
     uniqueID: 3583544403
     locked: 0
+  - name: Trees Out of bounds
+    uniqueID: 1054420737
+    locked: 0
   m_RenderingLayers:
   - Default
   - Light Layer 1
