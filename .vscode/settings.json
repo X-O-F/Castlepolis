@@ -56,5 +56,8 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Castlepolis.sln"
+    "dotnet.defaultSolution": "Castlepolis.sln",
+    "files.associations": {
+        "socket.h": "c"
+    }
 }
