@@ -37,7 +37,7 @@ public class DialogueInteraction : MonoBehaviour
         }
         if (dialogue != null && dialogue.dialogueActive)
         {
-            dialogue.gameObject.SetActive(false);
+            dialogue.SetVisible(false);
             dialogue.dialogueActive = false;
         }
 
@@ -50,22 +50,23 @@ public class DialogueInteraction : MonoBehaviour
 
         if (playerNearby && Input.GetKeyDown(KeyCode.E))
         {
-            if (dialogue != null && !dialogue.dialogueActive)
+            if (!dialogue.dialogueActive)
             {
                 dialogue.SetInteraction(this);
                 dialogue.StartDialogue(npcName);
                 if (interactionPopup != null)
-                    interactionPopup.SetActive(false); // Hide popup when player interacted
+                    interactionPopup.SetActive(false);
             }
-            else if (dialogue != null && dialogue.dialogueActive)
+            else
             {
                 dialogue.NextLine();
             }
         }
-        else if (playerNearby && dialogue != null && !dialogue.dialogueActive)
+        else if (playerNearby && !dialogue.dialogueActive)
         {
             if (interactionPopup != null)
-                interactionPopup.SetActive(true); // Show popup when dialogue ends but player is still near
+                interactionPopup.SetActive(true);
         }
     }
+
 }

@@ -8,6 +8,7 @@ public class Dialogue : MonoBehaviour
 {
     private DialogueInteraction currentInteraction;
 
+
     public void SetInteraction(DialogueInteraction interaction)
     {
         currentInteraction = interaction;
@@ -21,42 +22,51 @@ public class Dialogue : MonoBehaviour
     public bool infoReceived_Com = false;
     public Button yesButton, noButton;
 
+    private bool isTyping = false;
+    private Coroutine typingCoroutine;
+
     private System.Action yesAction, noAction;
     
     private int index;
 
     [System.Serializable]
-    public class npcDialogue {
+    public class npcDialogue
+    {
         public string npcName;
         public string[] lines;
+        public AudioClip[] audioClips;
     }
 
     public npcDialogue[] npcDialogues;
     private string[] current;
+    private AudioClip[] currentAudio;
+
+    public AudioSource audioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        gameObject.SetActive(false);
+        SetVisible(false);
+        textComponent.text = string.Empty;
         textComponent.text = string.Empty;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetVisible(bool visible)
     {
-        if (currentInteraction != null && currentInteraction.playerNearby && Input.GetKeyDown(KeyCode.E))
+        if (visible)
         {
-            if (!dialogueActive)
-            {
-                StartDialogue(currentInteraction.npcName);
-            }
-            else if (textComponent.text == current[index])
-            {
-                NextLine();
-            }
-
+            GetComponent<CanvasGroup>().alpha = 1f;
+            GetComponent<CanvasGroup>().interactable = true;
+            GetComponent<CanvasGroup>().blocksRaycasts = true;
+        }
+        else
+        {
+            GetComponent<CanvasGroup>().alpha = 0f;
+            GetComponent<CanvasGroup>().interactable = false;
+            GetComponent<CanvasGroup>().blocksRaycasts = false;
         }
     }
+
 
     public void StartDialogue(string npcName)
     {
@@ -64,13 +74,16 @@ public class Dialogue : MonoBehaviour
 
         textComponent.text = string.Empty;
         current = null;
+        currentAudio = null;
 
         foreach (var npcDialogue in npcDialogues)
         {
             if (npcDialogue.npcName == npcName)
             {
                 current = npcDialogue.lines;
-                if (npcDialogue.npcName == "Cook") 
+                currentAudio = npcDialogue.audioClips;
+
+                if (npcDialogue.npcName == "Cook")
                 {
                     infoReceived_Cook = true;
                     Debug.Log("Info received from cook");
@@ -84,7 +97,7 @@ public class Dialogue : MonoBehaviour
                 {
                     infoReceived_Com = true;
                     Debug.Log("Info received from commander");
-                } 
+                }
                 break;
             }
         }
@@ -96,17 +109,23 @@ public class Dialogue : MonoBehaviour
         }
 
 
-        gameObject.SetActive(true);
+        SetVisible(true);
 
         index = 0;
         dialogueActive = true;
-        StartCoroutine(TypeLine());
+        if (currentAudio[0] != null)
+        {
+            audioSource.clip = currentAudio[0];
+            audioSource.Play();
+        }
+       
+        typingCoroutine = StartCoroutine(TypeLine());
     }
 
     public void StartCustomDialogue(string npcName, string message, System.Action onYes, System.Action onNo)
     {
         dialogueActive = true;
-        gameObject.SetActive(true);
+        SetVisible(true);
 
         textComponent.text = message;
         //nameText.text = npcName; todo
@@ -137,30 +156,45 @@ public class Dialogue : MonoBehaviour
 
     IEnumerator TypeLine()
     {
+        isTyping = true;
         textComponent.text = string.Empty;
-        foreach(char c in current[index].ToCharArray())
+        foreach (char c in current[index].ToCharArray())
         {
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
+        isTyping = false;
+        typingCoroutine = null;
     }
 
     public void NextLine()
     {
         if (current == null) return;
 
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            textComponent.text = current[index];
+            typingCoroutine = null;
+            return;
+        }
+
         if (index < current.Length - 1)
         {
             index++;
             textComponent.text = string.Empty;
-            StartCoroutine(TypeLine());
+            if (currentAudio.Length > 1)
+            {
+                audioSource.clip = currentAudio[index];
+                audioSource.Play();
+            }
+            typingCoroutine = StartCoroutine(TypeLine());
         }
         else
         {
-            StopAllCoroutines();
             textComponent.text = string.Empty;
             dialogueActive = false;
-            gameObject.SetActive(false);
+            SetVisible(false);
         }
     }
 }

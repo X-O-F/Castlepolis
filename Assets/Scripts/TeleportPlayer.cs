@@ -8,10 +8,12 @@ public class TeleportPlayer : MonoBehaviour
     public Vector2 marketPosition;
     public Vector2 castlePosition;
 
+    public Vector2 parkPosition;
+
     // This function gets called from the button's OnClick event
     public void tpEntrance()
     {
-        if(entrancePosition == null || player == null)
+        if (entrancePosition == null || player == null)
         {
             Debug.Log("Error: teleport position not specified or player object not linked");
             return;
@@ -22,7 +24,7 @@ public class TeleportPlayer : MonoBehaviour
 
     public void tpFarm()
     {
-        if(entrancePosition == null || player == null)
+        if (entrancePosition == null || player == null)
         {
             Debug.Log("Error: teleport position not specified or player object not linked");
             return;
@@ -33,7 +35,7 @@ public class TeleportPlayer : MonoBehaviour
 
     public void tpMarket()
     {
-        if(entrancePosition == null || player == null)
+        if (entrancePosition == null || player == null)
         {
             Debug.Log("Error: teleport position not specified or player object not linked");
             return;
@@ -44,7 +46,7 @@ public class TeleportPlayer : MonoBehaviour
 
     public void tpCastle()
     {
-        if(entrancePosition == null || player == null)
+        if (entrancePosition == null || player == null)
         {
             Debug.Log("Error: teleport position not specified or player object not linked");
             return;
@@ -52,4 +54,16 @@ public class TeleportPlayer : MonoBehaviour
         player.position = castlePosition;
         Debug.Log("Player teleported to castle.");
     }
+
+    public void tpPark()
+    {
+        if(entrancePosition == null || player == null)
+        {
+            Debug.Log("Error: teleport position not specified or player object not linked");
+            return;
+        }
+        player.position = parkPosition;
+        Debug.Log("Player teleported to park.");
+    }
 }
+
