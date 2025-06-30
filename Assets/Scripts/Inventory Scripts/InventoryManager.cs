@@ -100,6 +100,7 @@ public class InventoryManager : MonoBehaviour
                 if (item.itemType == ItemType.Food) // Only decrease count if it's food
                 {
                     itemInSlot.count--;
+                    MusicManager.instance.PlayEatSFX();
                     if (itemInSlot.count <= 0)
                     {
                         Destroy(itemInSlot.gameObject);

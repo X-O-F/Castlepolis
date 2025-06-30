@@ -60,6 +60,8 @@ public class PlayerMovement : MonoBehaviour
         _animator.SetFloat(_VERTICAL, 0);
         _animator.SetBool(_IS_SPRINTING, false);
 
+        MusicManager.instance.PlaySwingSwordSFX();
+
         _animator.SetTrigger(_SWING_SWORD);
         Debug.Log("swing");
     }
@@ -74,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
         _animator.SetFloat(_HORIZONTAL, 0);
         _animator.SetFloat(_VERTICAL, 0);
         _animator.SetBool(_IS_SPRINTING, false);
+
+        MusicManager.instance.PlaySwingPickaxeSFX();
 
         _animator.SetTrigger(_SWING_PICKAXE);
         Debug.Log("swing");
