@@ -11,6 +11,7 @@ public class DemoScript : MonoBehaviour
         if (result == true)
         {
             Debug.Log("Item added");
+            MusicManager.instance.PlayPopSFX();
         }
         else
         {

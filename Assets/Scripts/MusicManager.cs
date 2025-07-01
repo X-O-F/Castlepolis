@@ -15,6 +15,12 @@ public class MusicManager : MonoBehaviour
     public AudioClip eatClip;
     public AudioClip swingSwordClip;
     public AudioClip swingPickaxeClip;
+    public AudioClip buttonClip;
+    public AudioClip coinsClip;
+    public AudioClip doorOpenClip;
+    public AudioClip doorCloseClip;
+    public AudioClip teleportClip;
+    public AudioClip popClip;
 
     private void Awake()
     {
@@ -31,7 +37,8 @@ public class MusicManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(initMusic());
+        if (musicSource != null)
+            StartCoroutine(initMusic());
     }
 
     public void PlayTownMusic()
@@ -70,28 +77,53 @@ public class MusicManager : MonoBehaviour
 
     public void PlayEatSFX()
     {
-        if (sfxSource.clip != eatClip)
-        {
-            sfxSource.clip = eatClip;
-            sfxSource.Play();
-        }
+        sfxSource.clip = eatClip;
+        sfxSource.Play();
     }
 
     public void PlaySwingSwordSFX()
     {
-        if (sfxSource.clip != swingSwordClip)
-        {
-            sfxSource.clip = swingSwordClip;
-            sfxSource.Play();
-        }
+        sfxSource.clip = swingSwordClip;
+        sfxSource.Play();
     }
 
     public void PlaySwingPickaxeSFX()
     {
-        if (sfxSource.clip != swingPickaxeClip)
-        {
-            sfxSource.clip = swingPickaxeClip;
-            sfxSource.Play();
-        }
+        sfxSource.clip = swingPickaxeClip;
+        sfxSource.Play();
+    }
+    public void PlayButtonSFX()
+    {
+        sfxSource.clip = buttonClip;
+        sfxSource.Play();
+    }
+    public void PlayCoinsSFX()
+    {
+        sfxSource.clip = coinsClip;
+        sfxSource.Play();
+    }
+
+    public void PlayDoorOpenSFX()
+    {
+        sfxSource.clip = doorOpenClip;
+        sfxSource.Play();
+    }
+
+    public void PlayDoorCloseSFX()
+    {
+        sfxSource.clip = doorCloseClip;
+        sfxSource.Play();
+    }
+
+    public void PlayTeleportSFX()
+    {
+        sfxSource.clip = teleportClip;
+        sfxSource.Play();
+    }
+
+     public void PlayPopSFX()
+    {
+        sfxSource.clip = popClip;
+        sfxSource.Play();
     }
 }

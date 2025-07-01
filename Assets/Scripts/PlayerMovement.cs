@@ -3,7 +3,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 5f;
-    [SerializeField] private float _sprintMultiplier = 1.5f; 
+    [SerializeField] private float _sprintMultiplier = 1.5f;
+
+    [SerializeField] private AudioSource _footstepAudioSource;
+    [SerializeField] private float _stepInterval = 0.4f;
+
+    private float _stepTimer;
 
     private Vector2 _movement;
     private Rigidbody2D _rb;
@@ -30,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!_canMove) return; // Prevent movement if character engaged in animation
+        if (!_canMove) return; // Prevent movement if character engaged in animation
 
         _movement.Set(InputManager.Movement.x, InputManager.Movement.y);
 
@@ -42,11 +47,37 @@ public class PlayerMovement : MonoBehaviour
         _animator.SetFloat(_VERTICAL, _movement.y);
         _animator.SetBool(_IS_SPRINTING, InputManager.isSprinting);
 
-        if(_movement != Vector2.zero)
+        if (_movement != Vector2.zero)
         {
             _animator.SetFloat(_LAST_HORIZONTAL, _movement.x);
             _animator.SetFloat(_LAST_VERTICAL, _movement.y);
         }
+
+        HandleFootsteps();
+    }
+
+    private void HandleFootsteps()
+    {
+        if (_rb.linearVelocity.magnitude > 0.1f)
+        {
+            _stepTimer -= Time.deltaTime;
+
+            if (_stepTimer <= 0f)
+            {
+                _footstepAudioSource.pitch = Random.Range(0.95f, 1.05f);
+                _footstepAudioSource.Play();
+
+                float currentStepInterval = _stepInterval;
+                if (InputManager.isSprinting)
+                    currentStepInterval /= _sprintMultiplier;
+                _stepTimer = currentStepInterval;
+            }
+        }
+        else
+        {
+            _stepTimer = 0f; // reset timer when idle
+        }
+
     }
 
     public void SwingSword()

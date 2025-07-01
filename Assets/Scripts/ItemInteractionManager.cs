@@ -70,6 +70,7 @@ public class ItemInteractionManager : MonoBehaviour
 
                 if (added)
                 {
+                    MusicManager.instance.PlayPopSFX();
                     Debug.Log("Picked up item and added to inventory.");
                     Destroy(item);
                     interactionPopup.SetActive(false);

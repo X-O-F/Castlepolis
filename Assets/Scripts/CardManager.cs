@@ -100,6 +100,7 @@ public class CardManager : MonoBehaviour
         {
             if (cardsMenu != null && !cardsActive)
             {
+                MusicManager.instance.PlayPopSFX();
                 cardsMenu.SetActive(true);
                 cardsActive = true;
 
@@ -108,6 +109,7 @@ public class CardManager : MonoBehaviour
             }
             else if (cardsMenu != null && cardsActive)
             {
+                MusicManager.instance.PlayPopSFX();
                 CloseInfoMenu();
                 CloseCardsMenu();
             }

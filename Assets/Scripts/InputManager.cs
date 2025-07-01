@@ -51,6 +51,7 @@ public class InputManager : MonoBehaviour
     {
         if (pauseMenu != null)
         {
+            MusicManager.instance.PlayPopSFX();
             pauseMenu.TogglePause();
         }
     }

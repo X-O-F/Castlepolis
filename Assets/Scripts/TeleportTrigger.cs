@@ -44,11 +44,13 @@ public class TeleportTrigger : MonoBehaviour
             switch (toArea)
             {
                 case "castleInterior":
+                    MusicManager.instance.PlayDoorOpenSFX();
                     teleportPlayer.tpCastleInterior();
-                    StartCoroutine(showBlackScreen());
+                    StartCoroutine(showBlackScreen());;
                     MusicManager.instance.PlayCastleMusic();
                     break;
                 case "castleEntrance":
+                    MusicManager.instance.PlayDoorCloseSFX();
                     teleportPlayer.tpCastleEntrance();
                     StartCoroutine(showBlackScreen());
                     MusicManager.instance.PlayTownMusic();
