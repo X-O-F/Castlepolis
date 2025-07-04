@@ -43,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -81,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,33 +106,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 016_0
+      name: Seller2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 95
-        width: 20
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0bfd84fdd54484080800000000000000
-      internalID: -9203030668562866256
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 016_1
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 95
+        y: 96
         width: 20
         height: 32
       alignment: 0
@@ -141,32 +119,54 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 97ea4c48da1507d90800000000000000
-      internalID: -7102086806664597895
+      spriteID: 7c2b80766bd334d568e81c21300eb81a
+      internalID: 1435276416
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 016_2
+      name: Seller2_1
       rect:
         serializedVersion: 2
-        x: 40
-        y: 95
+        x: 20
+        y: 96
         width: 20
-        height: 33
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a8de22f6785328bd0800000000000000
-      internalID: -2629480376629531254
+      spriteID: 766d93761affd4bdaaa032c5ecdf62b0
+      internalID: -229419690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seller2_2
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 96
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2290e350cacd40e4959f8a51d16dff9
+      internalID: 1357709082
       vertices: []
       indices: 
       edges: []
@@ -175,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 074b14f4873964072913276b3b591129
     internalID: 0
     vertices: []
     indices: 
@@ -185,9 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      016_0: -9203030668562866256
-      016_1: -7102086806664597895
-      016_2: -2629480376629531254
+      Seller2_0: 1435276416
+      Seller2_1: -229419690
+      Seller2_2: 1357709082
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
