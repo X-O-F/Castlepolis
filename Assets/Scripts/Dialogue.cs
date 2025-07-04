@@ -28,7 +28,7 @@ public class Dialogue : MonoBehaviour
     private Coroutine typingCoroutine;
 
     private System.Action yesAction, noAction;
-    
+
     private int index;
 
     [System.Serializable]
@@ -44,6 +44,8 @@ public class Dialogue : MonoBehaviour
     private AudioClip[] currentAudio;
 
     public AudioSource audioSource;
+
+    private string avenaLine;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -113,6 +115,13 @@ public class Dialogue : MonoBehaviour
                     InventoryManager.instance.AddItem(farmerItem);
                     MusicManager.instance.PlayPopSFX();
                     Debug.Log("Farmer gave carrot to player.");
+                }
+                else if (npcDialogue.npcName == "Avena")
+                {
+                    int randomIndex = Random.Range(0, npcDialogue.lines.Length);
+                    avenaLine = npcDialogue.lines[randomIndex];
+                    audioSource.clip = npcDialogue.audioClips[0];
+                    current = new string[] { avenaLine };
                 }
                 break;
             }
