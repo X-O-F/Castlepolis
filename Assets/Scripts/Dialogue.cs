@@ -16,6 +16,7 @@ public class Dialogue : MonoBehaviour
 
     public TextMeshProUGUI textComponent;
     public float textSpeed;
+    public GameObject indicator;
     public bool dialogueActive = false;
     public bool infoReceived_Cook = false;
     public bool infoReceived_Gar = false;
@@ -47,8 +48,17 @@ public class Dialogue : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        indicator.SetActive(false);
         SetVisible(false);
         textComponent.text = string.Empty;
+    }
+
+    void Update()
+    {
+        if (isTyping)
+            indicator.SetActive(false);
+        else
+            indicator.SetActive(true);
     }
 
     public void SetVisible(bool visible)
@@ -124,7 +134,7 @@ public class Dialogue : MonoBehaviour
             audioSource.clip = currentAudio[0];
             audioSource.Play();
         }
-       
+
         typingCoroutine = StartCoroutine(TypeLine());
     }
 
@@ -162,6 +172,7 @@ public class Dialogue : MonoBehaviour
 
     IEnumerator TypeLine()
     {
+        InputManager.isGamePaused = true; // Lock player movement during dialogue
         isTyping = true;
         textComponent.text = string.Empty;
         foreach (char c in current[index].ToCharArray())
@@ -182,6 +193,7 @@ public class Dialogue : MonoBehaviour
             StopCoroutine(typingCoroutine);
             textComponent.text = current[index];
             typingCoroutine = null;
+            isTyping = false;
             return;
         }
 
@@ -199,8 +211,10 @@ public class Dialogue : MonoBehaviour
         else
         {
             textComponent.text = string.Empty;
+            audioSource.Stop();
             dialogueActive = false;
             SetVisible(false);
+            InputManager.isGamePaused = false; // Unlock player movement
         }
     }
 }

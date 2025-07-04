@@ -5,13 +5,17 @@ public class MusicManager : MonoBehaviour
 {
     public static MusicManager instance;
 
+    [Header("Audio Sources")]
     public AudioSource musicSource;
-
     public AudioSource sfxSource;
+    public AudioSource workerHammerSource;
+
+    [Header("Music Clips")]
     public AudioClip townClip;
     public AudioClip castleClip;
     public AudioClip introClip;
 
+    [Header("SFX Clips")]
     public AudioClip eatClip;
     public AudioClip swingSwordClip;
     public AudioClip swingPickaxeClip;
@@ -21,6 +25,7 @@ public class MusicManager : MonoBehaviour
     public AudioClip doorCloseClip;
     public AudioClip teleportClip;
     public AudioClip popClip;
+    public AudioClip hammerClip;
 
     private void Awake()
     {
@@ -121,9 +126,14 @@ public class MusicManager : MonoBehaviour
         sfxSource.Play();
     }
 
-     public void PlayPopSFX()
+    public void PlayPopSFX()
     {
         sfxSource.clip = popClip;
         sfxSource.Play();
+    }
+
+    public void PlayHammerSFX()
+    {
+        workerHammerSource.PlayOneShot(hammerClip);
     }
 }
