@@ -35,11 +35,12 @@ public class DialogueInteraction : MonoBehaviour
             if(interactionPopup != null)
                 interactionPopup.SetActive(false); // Hide popup when player is away
         }
-        if (dialogue != null && dialogue.dialogueActive)
+
+        /*if (dialogue != null && dialogue.dialogueActive)
         {
             dialogue.SetVisible(false);
             dialogue.dialogueActive = false;
-        }
+        }*/
 
     }
 
