@@ -106,8 +106,6 @@ public class ItemInteractionManager : MonoBehaviour
             Debug.Log("No item to use.");
         }
     }
-
-
     private IEnumerator RespawnItem(GameObject item, float delay)
     {
         yield return new WaitForSeconds(delay);

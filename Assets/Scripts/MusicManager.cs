@@ -26,6 +26,7 @@ public class MusicManager : MonoBehaviour
     public AudioClip teleportClip;
     public AudioClip popClip;
     public AudioClip hammerClip;
+    public AudioClip coinFindClip;
 
     private void Awake()
     {
@@ -132,8 +133,15 @@ public class MusicManager : MonoBehaviour
         sfxSource.Play();
     }
 
+    public void PlayCoinFoundSFX()
+    {
+        sfxSource.clip = coinFindClip;
+        sfxSource.Play();
+    }
+
     public void PlayHammerSFX()
     {
         workerHammerSource.PlayOneShot(hammerClip);
     }
+
 }

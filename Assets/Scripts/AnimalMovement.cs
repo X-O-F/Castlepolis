@@ -11,10 +11,15 @@ public class AnimalMovement : MonoBehaviour
     public float pushForce = 2f; // How strong the chicken gets pushed by the player
     public float linearDrag = 5f; // Linear drag to make the chicken stop moving after being pushed
 
+    public AudioClip animalSound;
+    public float minSoundInterval = 3f;
+    public float maxSoundInterval = 8f;
+
     private Vector3 targetDirection;
     private bool isMoving = false;
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
+    public AudioSource audioSource;
 
     void Start()
     {
@@ -26,6 +31,7 @@ public class AnimalMovement : MonoBehaviour
 
         // Start the first random movement direction
         SetNewTargetDirection();
+
     }
 
     void Update()
@@ -84,6 +90,8 @@ public class AnimalMovement : MonoBehaviour
 
             // Apply a force to push the chicken away from the player
             rb.AddForce(pushDirection * pushForce, ForceMode2D.Impulse);
+
+            PlayAnimalSound();
         }
     }
 
@@ -100,6 +108,15 @@ public class AnimalMovement : MonoBehaviour
         {
             // Flip to left
             spriteRenderer.flipX = true;
+        }
+    }
+
+
+    private void PlayAnimalSound()
+    {
+        if (animalSound != null)
+        {
+            audioSource.PlayOneShot(animalSound);
         }
     }
 }
