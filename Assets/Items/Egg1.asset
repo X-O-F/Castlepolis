@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 138e0169d878e56449672aa1d8c21269, type: 3}
-  m_Name: Fish 3
+  m_Name: Egg1
   m_EditorClassIdentifier: 
   tile: {fileID: 0}
   itemType: 3
   actionType: 1
   range: {x: 5, y: 4}
   stackable: 1
-  image: {fileID: -3878289797822314810, guid: 7efeaec4ecdfa43ca9c0f45fbd9750b8, type: 3}
-  itemID: 5
+  image: {fileID: 1161201145128540330, guid: 96ff9d58e2a4a4f6a882f2e040b285a2, type: 3}
+  itemID: 9

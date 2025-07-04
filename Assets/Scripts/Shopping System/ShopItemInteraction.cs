@@ -7,6 +7,13 @@ public class ShopItemInteraction : MonoBehaviour
     public Item itemForSale;
     public int price;
 
+    public AudioClip hiClip;
+    public AudioClip byeClip;
+    public AudioClip thxClip;
+    public AudioClip coinsClip;
+
+    public AudioSource audioSource;
+
     public string itemName;
 
     private Dialogue dialogue;
@@ -54,24 +61,60 @@ public class ShopItemInteraction : MonoBehaviour
 
     void ShowBuyDialogue()
     {
-        string line = $"This {itemName} costs {price} coins. Do you want to buy it?";
+        string line = "";
+        if (npcName == "sellerVeg")
+        {
+            line = "Hey there, I'm selling local vegetables. Would you like to buy?";
+        }
+        else if (npcName == "sellerAv")
+        {
+            line = "Greetings! I'm selling Avena Charms. Would you like to buy?";
+        }
+        else
+        {
+            Debug.Log("Shop error");
+            return;
+        }
+        line += $" (Item: {itemName} Price: {price} coins.)";
+        audioSource.clip = hiClip;
+        audioSource.Play();
         dialogue.StartCustomDialogue(npcName, line, OnYes, OnNo);
     }
 
     void OnYes()
     {
-        if(PlayerWallet.instance.SpendCoins(price))
+        string line1 = "";
+        if (npcName == "sellerVeg")
         {
-            InventoryManager.instance.AddItem(itemForSale);
-            dialogue.ShowLine("Thanks for your purchase!");
+            line1 = "Thanks for buying!";
+        }
+        else if (npcName == "sellerAv")
+        {
+            line1 = "Thanks for your purchase!";
         }
         else
         {
-            dialogue.ShowLine("Sorry, you don't have enough coins.");
+            Debug.Log("Shop error");
+            return;
+        }
+        if (PlayerWallet.instance.SpendCoins(price))
+        {
+            InventoryManager.instance.AddItem(itemForSale);
+            audioSource.clip = thxClip;
+            audioSource.Play();
+            dialogue.ShowLine(line1);
+        }
+        else
+        {
+            audioSource.clip = coinsClip;
+            audioSource.Play();
+            dialogue.ShowLine("You don't have enough coins.");
         }
     }
     void OnNo()
     {
+        audioSource.clip = byeClip;
+        audioSource.Play();
         dialogue.ShowLine("Come back any time!");
     }
 }

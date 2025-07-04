@@ -21,6 +21,7 @@ public class Dialogue : MonoBehaviour
     public bool infoReceived_Gar = false;
     public bool infoReceived_Com = false;
     public Button yesButton, noButton;
+    public Item farmerItem;
 
     private bool isTyping = false;
     private Coroutine typingCoroutine;
@@ -47,7 +48,6 @@ public class Dialogue : MonoBehaviour
     void Start()
     {
         SetVisible(false);
-        textComponent.text = string.Empty;
         textComponent.text = string.Empty;
     }
 
@@ -97,6 +97,12 @@ public class Dialogue : MonoBehaviour
                 {
                     infoReceived_Com = true;
                     Debug.Log("Info received from commander");
+                }
+                else if (npcDialogue.npcName == "Farmer")
+                {
+                    InventoryManager.instance.AddItem(farmerItem);
+                    MusicManager.instance.PlayPopSFX();
+                    Debug.Log("Farmer gave carrot to player.");
                 }
                 break;
             }
