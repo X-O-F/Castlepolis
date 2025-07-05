@@ -101,31 +101,38 @@ public class Dialogue : MonoBehaviour
                 if (npcDialogue.npcName == "Cook")
                 {
                     infoReceived_Cook = true;
+                    NotificationManager.instance.ShowNotif("Card Unlocked:\nCook", "card");
                     Debug.Log("Info received from cook");
                 }
                 else if (npcDialogue.npcName == "Gardener")
                 {
                     infoReceived_Gar = true;
+                    NotificationManager.instance.ShowNotif("Card Unlocked:\nGardener", "card");
                     Debug.Log("Info received from gardener");
                 }
                 else if (npcDialogue.npcName == "Worker")
                 {
                     infoReceived_Wor = true;
+                    NotificationManager.instance.ShowNotif("Card Unlocked:\nWorker", "card");
                     Debug.Log("Info received from worker");
                 }
                 else if (npcDialogue.npcName == "Farmer")
                 {
-                    infoReceived_Far = true;
-                    Debug.Log("Info received from farmer");
-
                     InventoryManager.instance.AddItem(farmerItem);
-                    MusicManager.instance.PlayPopSFX();
+                    NotificationManager.instance.ShowNotif("Item Received:\nCarrot", "item");
                     Debug.Log("Farmer gave carrot to player.");
                 }
                 else if (npcDialogue.npcName == "Monk")
                 {
                     infoReceived_Mon = true;
+                    NotificationManager.instance.ShowNotif("Card Unlocked:\nMonk", "card");
                     Debug.Log("Info received from monk");
+                }
+                else if (npcDialogue.npcName == "Farmer2")
+                {
+                    infoReceived_Far = true;
+                    NotificationManager.instance.ShowNotif("Card Unlocked:\nFarmer", "card");
+                    Debug.Log("Info received from farmer");
                 }
                 else if (npcDialogue.npcName == "Avena")
                 {

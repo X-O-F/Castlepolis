@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class MusicManager : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class MusicManager : MonoBehaviour
     public AudioClip popClip;
     public AudioClip hammerClip;
     public AudioClip coinFindClip;
+    public AudioClip cardUnlockClip;
+    public AudioClip errorClip;
 
     private void Awake()
     {
@@ -136,6 +139,18 @@ public class MusicManager : MonoBehaviour
     public void PlayCoinFoundSFX()
     {
         sfxSource.clip = coinFindClip;
+        sfxSource.Play();
+    }
+
+    public void PlayCardUnlockSFX()
+    {
+        sfxSource.clip = cardUnlockClip;
+        sfxSource.Play();
+    }
+
+    public void PlayErrorSFX()
+    {
+        sfxSource.clip = errorClip;
         sfxSource.Play();
     }
 

@@ -77,10 +77,12 @@ public class ItemInteractionManager : MonoBehaviour
                 {
                     added = InventoryManager.instance.AddItem(itemToAdd);
                 }
-                
+
                 if (added)
                 {
-                    MusicManager.instance.PlayPopSFX();
+                    string itemName = getItemNameByID(itemToAdd.itemID);
+                    if (itemName != null)
+                        NotificationManager.instance.ShowNotif("Item Received:\n" + itemName, "item");
                     Debug.Log("Picked up item and added to inventory.");
                     Destroy(item);
                     interactionPopup.SetActive(false);
@@ -88,6 +90,7 @@ public class ItemInteractionManager : MonoBehaviour
                 }
                 else
                 {
+                    NotificationManager.instance.ShowNotif("Error:\nInventory Full", "error");
                     Debug.Log("Inventory Full. Cannot pick up item.");
                 }
             }
@@ -149,5 +152,33 @@ public class ItemInteractionManager : MonoBehaviour
                 interactionPopup.SetActive(false);
             }
         }
+    }
+
+    private string getItemNameByID(int id)
+    {
+        switch (id)
+        {
+            case 0:
+                return "Sword";
+            case 1:
+                return "Pickaxe";
+            case 2:
+                return "Egg";
+            case 3:
+                return "Pepper";
+            case 4:
+                return "Carrot";
+            case 5:
+                return "Pumpkin";
+            case 6:
+                return "Potato";
+            case 7:
+                return "Avena Charms";
+            case 8:
+                return "Avena Charms";
+            case 9:
+                return "Avena Charms";
+        }
+        return null;
     }
 }

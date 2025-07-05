@@ -17,7 +17,7 @@ public class CoinInteraction : MonoBehaviour
         {
             HideCoin();
             PlayerWallet.instance.AddCoins(coinValue);
-            MusicManager.instance.PlayCoinFoundSFX();
+            NotificationManager.instance.ShowNotif("Coins found!\n+" + coinValue, "coin");
             StartCoroutine(RespawnItem(respawnDelay));
         }
     }
