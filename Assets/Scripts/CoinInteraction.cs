@@ -7,12 +7,13 @@ public class CoinInteraction : MonoBehaviour
     public GameObject interactionPopup;
     public float respawnDelay = 60;
     public int coinValue = 100;
-    private bool isNearCoin = false;
 
+    public bool playerNearby = false;
+    
     // Update is called once per frame
     void Update()
     {
-        if (isNearCoin && Input.GetKeyDown(KeyCode.E))
+        if (playerNearby && Input.GetKeyDown(KeyCode.E))
         {
             HideCoin();
             PlayerWallet.instance.AddCoins(coinValue);
@@ -21,22 +22,23 @@ public class CoinInteraction : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Triggered by: " + other.gameObject.name);
-        isNearCoin = true;
-        if (interactionPopup != null)
+        if (other.CompareTag("Player"))
         {
-            interactionPopup.SetActive(true);
+            playerNearby = true;
+            if (interactionPopup != null)
+                interactionPopup.SetActive(true); // Show popup when player is near
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    void OnTriggerExit2D(Collider2D other)
     {
-        isNearCoin = false;
-        if (interactionPopup != null)
+        if (other.CompareTag("Player"))
         {
-            interactionPopup.SetActive(false);
+            playerNearby = false;
+            if(interactionPopup != null)
+                interactionPopup.SetActive(false); // Hide popup when player is away
         }
     }
 
@@ -49,6 +51,7 @@ public class CoinInteraction : MonoBehaviour
 
     private void HideCoin()
     {
+        playerNearby = false;
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
     }
