@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 138e0169d878e56449672aa1d8c21269, type: 3}
-  m_Name: Fish 4
+  m_Name: charm2
   m_EditorClassIdentifier: 
   tile: {fileID: 0}
-  itemType: 3
-  actionType: 1
+  itemType: 0
+  actionType: 0
   range: {x: 5, y: 4}
-  stackable: 1
-  image: {fileID: 6406061711972274550, guid: 7efeaec4ecdfa43ca9c0f45fbd9750b8, type: 3}
-  itemID: 6
+  stackable: 0
+  image: {fileID: -549365625, guid: 1f7689c743d434fe48e6d4bc8c4672f6, type: 3}
+  itemID: 8

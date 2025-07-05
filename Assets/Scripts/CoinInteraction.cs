@@ -14,10 +14,10 @@ public class CoinInteraction : MonoBehaviour
     {
         if (isNearCoin && Input.GetKeyDown(KeyCode.E))
         {
-            gameObject.SetActive(false);
+            HideCoin();
             PlayerWallet.instance.AddCoins(coinValue);
             MusicManager.instance.PlayCoinFoundSFX();
-            StartCoroutine(RespawnItem(respawnDelay)); 
+            StartCoroutine(RespawnItem(respawnDelay));
         }
     }
 
@@ -39,11 +39,23 @@ public class CoinInteraction : MonoBehaviour
             interactionPopup.SetActive(false);
         }
     }
-    
+
 
     private IEnumerator RespawnItem(float delay)
     {
         yield return new WaitForSeconds(delay);
-        gameObject.SetActive(true);
+        ShowCoin();
+    }
+
+    private void HideCoin()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+    }
+
+    private void ShowCoin()
+    {
+        GetComponent<SpriteRenderer>().enabled = true;
+        GetComponent<Collider2D>().enabled = true;
     }
 }

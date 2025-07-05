@@ -65,9 +65,19 @@ public class ItemInteractionManager : MonoBehaviour
                 Item itemToAdd = DemoScript.instance.itemsToPickup[interactable.itemID];
                 itemToAdd.itemID = interactable.itemID;
 
-                bool added = InventoryManager.instance.AddItem(itemToAdd);
+                bool added = false;
 
-
+                if (itemToAdd.itemID == 2)
+                {
+                    added = InventoryManager.instance.AddItem(itemToAdd);
+                    InventoryManager.instance.AddItem(itemToAdd);
+                    InventoryManager.instance.AddItem(itemToAdd);
+                }
+                else
+                {
+                    added = InventoryManager.instance.AddItem(itemToAdd);
+                }
+                
                 if (added)
                 {
                     MusicManager.instance.PlayPopSFX();

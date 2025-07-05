@@ -134,6 +134,7 @@ public class Dialogue : MonoBehaviour
                     audioSource.clip = npcDialogue.audioClips[0];
                     current = new string[] { avenaLine };
                 }
+
                 break;
 
                 // if for cats here -- set infoReceived_Cats = true;
@@ -165,25 +166,34 @@ public class Dialogue : MonoBehaviour
         dialogueActive = true;
         SetVisible(true);
 
-        textComponent.text = message;
-        //nameText.text = npcName; todo
+        current = new string[] { message };
+        StartCoroutine(TypeLine(true));
 
         yesAction = onYes;
         noAction = onNo;
-
-        yesButton.gameObject.SetActive(true);
-        noButton.gameObject.SetActive(true);
 
         yesButton.onClick.RemoveAllListeners();
         noButton.onClick.RemoveAllListeners();
 
         yesButton.onClick.AddListener(() => { yesAction?.Invoke(); HideOptions(); });
         noButton.onClick.AddListener(() => { noAction?.Invoke(); HideOptions(); });
+
+        yesButton.gameObject.SetActive(false); // Hide until typing finishes
+        noButton.gameObject.SetActive(false);
     }
 
     public void ShowLine(string message)
     {
-        textComponent.text = message;
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            typingCoroutine = null;
+            isTyping = false;
+        }
+
+        current = new string[] { message };
+        textComponent.text = string.Empty;
+        typingCoroutine = StartCoroutine(TypeLine());
     }
 
     void HideOptions()
@@ -192,7 +202,7 @@ public class Dialogue : MonoBehaviour
         noButton.gameObject.SetActive(false);
     }
 
-    IEnumerator TypeLine()
+    public IEnumerator TypeLine(bool isShop = false)
     {
         InputManager.isGamePaused = true; // Lock player movement during dialogue
         isTyping = true;
@@ -204,6 +214,13 @@ public class Dialogue : MonoBehaviour
         }
         isTyping = false;
         typingCoroutine = null;
+
+        if (isShop == true)
+        {
+            yesButton.gameObject.SetActive(true);
+            noButton.gameObject.SetActive(true);
+            isShop = false;
+        }
     }
 
     public void NextLine()
@@ -238,5 +255,14 @@ public class Dialogue : MonoBehaviour
             SetVisible(false);
             InputManager.isGamePaused = false; // Unlock player movement
         }
+    }
+
+    public void ForceEndDialogueMode()
+    {
+        textComponent.text = string.Empty;
+        audioSource.Stop();
+        dialogueActive = false;
+        SetVisible(false);
+        InputManager.isGamePaused = false; // Unlock player movement
     }
 }

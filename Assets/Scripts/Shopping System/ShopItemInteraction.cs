@@ -1,28 +1,37 @@
 using UnityEngine;
+using System.Collections;
 
 public class ShopItemInteraction : MonoBehaviour
 {
     public GameObject interactionPopup;
     public string npcName;
-    public Item itemForSale;
+    public Item[] itemsForSale;
     public int price;
 
     public AudioClip hiClip;
     public AudioClip byeClip;
     public AudioClip thxClip;
     public AudioClip coinsClip;
+    public AudioClip coinsSfxClip;
 
     public AudioSource audioSource;
+    public AudioSource sfxSource;
 
     public string itemName;
 
-    private Dialogue dialogue;
     private bool playerNearby = false;
+
+    public Dialogue dialogue;
+
+    private bool lockedDialogue = false;
+    private bool lastLine = false;
+
 
     void Awake()
     {
         dialogue = FindObjectOfType<Dialogue>(true);
-        if(interactionPopup != null)
+
+        if (interactionPopup != null)
             interactionPopup.SetActive(false);
     }
 
@@ -38,13 +47,11 @@ public class ShopItemInteraction : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             playerNearby = false;
             if (interactionPopup != null)
                 interactionPopup.SetActive(false);
-            dialogue.gameObject.SetActive(false);
-            dialogue.dialogueActive = false;
         }
     }
 
@@ -52,10 +59,16 @@ public class ShopItemInteraction : MonoBehaviour
     {
         if (!dialogue) return;
 
-        if (playerNearby && Input.GetKeyDown(KeyCode.E))
+        if (playerNearby && Input.GetKeyDown(KeyCode.E) && !lockedDialogue && !lastLine)
         {
             ShowBuyDialogue();
             interactionPopup.SetActive(false);
+        }
+        else if (playerNearby && Input.GetKeyDown(KeyCode.E) && lastLine && !lockedDialogue)
+        {
+            dialogue.ForceEndDialogueMode();
+            lastLine = false;
+            lockedDialogue = false;
         }
     }
 
@@ -78,6 +91,7 @@ public class ShopItemInteraction : MonoBehaviour
         line += $" (Item: {itemName} Price: {price} coins.)";
         audioSource.clip = hiClip;
         audioSource.Play();
+        lockedDialogue = true;
         dialogue.StartCustomDialogue(npcName, line, OnYes, OnNo);
     }
 
@@ -99,16 +113,24 @@ public class ShopItemInteraction : MonoBehaviour
         }
         if (PlayerWallet.instance.SpendCoins(price))
         {
-            InventoryManager.instance.AddItem(itemForSale);
+            foreach (Item item in itemsForSale)
+            {
+                InventoryManager.instance.AddItem(item);
+            }
             audioSource.clip = thxClip;
             audioSource.Play();
+            sfxSource.PlayOneShot(coinsSfxClip);
             dialogue.ShowLine(line1);
+            lockedDialogue = false;
+            lastLine = true;
         }
         else
         {
             audioSource.clip = coinsClip;
             audioSource.Play();
             dialogue.ShowLine("You don't have enough coins.");
+            lockedDialogue = false;
+            lastLine = true;
         }
     }
     void OnNo()
@@ -116,5 +138,7 @@ public class ShopItemInteraction : MonoBehaviour
         audioSource.clip = byeClip;
         audioSource.Play();
         dialogue.ShowLine("Come back any time!");
+        lockedDialogue = false;
+        lastLine = true;
     }
 }
