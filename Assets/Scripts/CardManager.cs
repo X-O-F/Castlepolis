@@ -34,7 +34,11 @@ public class CardManager : MonoBehaviour
     public Sprite monkCardActivated;
     public Image monkCardImage;
 
-    // same stuff for cats card here
+    public TextMeshProUGUI catCardName;
+    public GameObject catCard;
+    public Sprite catCardActivated;
+    public Image catCardImage;
+
 
     private Color cardOpacity;
 
@@ -110,7 +114,14 @@ public class CardManager : MonoBehaviour
             Debug.Log("MonkCard not found");
         }
 
-        // if for cats card here
+        if (catCard != null)
+        {
+            catCardName = catCard.transform.Find("CatCardName").GetComponent<TextMeshProUGUI>();
+        }
+        else
+        {
+            Debug.Log("CatCard not found");
+        }
 
         if (cardInfo != null)
         {
@@ -135,6 +146,7 @@ public class CardManager : MonoBehaviour
                 MusicManager.instance.PlayPopSFX();
                 cardsMenu.SetActive(true);
                 cardsActive = true;
+                InputManager.isGamePaused = true;
 
                 Debug.Log("Menu is active");
                 UpdateCardNames();
@@ -144,6 +156,7 @@ public class CardManager : MonoBehaviour
                 MusicManager.instance.PlayPopSFX();
                 CloseInfoMenu();
                 CloseCardsMenu();
+                InputManager.isGamePaused = false;
             }
             else if (cardsMenu == null)
             {
@@ -154,88 +167,101 @@ public class CardManager : MonoBehaviour
 
     void UpdateCardNames()
     {
-            if (dialogueScript.infoReceived_Cook)
-            {
-                cookCardName.text = "Market (Cook)";
-                cookCardImage.sprite = cookCardActivated;
-                cardOpacity = cookCardImage.color;
-                cardOpacity.a = 1f;
-                cookCardImage.color = cardOpacity;
-            }
-            else
-            {
-                cookCardName.text = "???";
-                cardOpacity = cookCardImage.color;
-                cardOpacity.a = 0.5f;
-                cookCardImage.color = cardOpacity;
-            }
+        if (dialogueScript.infoReceived_Cook)
+        {
+            cookCardName.text = "Cooking Tools";
+            cookCardImage.sprite = cookCardActivated;
+            cardOpacity = cookCardImage.color;
+            cardOpacity.a = 1f;
+            cookCardImage.color = cardOpacity;
+        }
+        else
+        {
+            cookCardName.text = "???";
+            cardOpacity = cookCardImage.color;
+            cardOpacity.a = 0.5f;
+            cookCardImage.color = cardOpacity;
+        }
 
-            if (dialogueScript.infoReceived_Gar)
-            {
-                gardenerCardName.text = "Market (Gardener)";
-                gardenerCardImage.sprite = gardenerCardActivated;
-                cardOpacity = gardenerCardImage.color;
-                cardOpacity.a = 1f;
-                gardenerCardImage.color = cardOpacity;
-            }
-            else
-            {
-                gardenerCardName.text = "???";
-                cardOpacity = gardenerCardImage.color;
-                cardOpacity.a = 0.5f;
-                gardenerCardImage.color = cardOpacity;
-            }
+        if (dialogueScript.infoReceived_Gar)
+        {
+            gardenerCardName.text = "Botanical Garden";
+            gardenerCardImage.sprite = gardenerCardActivated;
+            cardOpacity = gardenerCardImage.color;
+            cardOpacity.a = 1f;
+            gardenerCardImage.color = cardOpacity;
+        }
+        else
+        {
+            gardenerCardName.text = "???";
+            cardOpacity = gardenerCardImage.color;
+            cardOpacity.a = 0.5f;
+            gardenerCardImage.color = cardOpacity;
+        }
 
-            if (dialogueScript.infoReceived_Wor)
-            {
-                workerCardName.text = "Castle Walls";
-                workerCardImage.sprite = workerCardActivated;
-                cardOpacity = workerCardImage.color;
-                cardOpacity.a = 1f;
-                workerCardImage.color = cardOpacity;
-            }
-            else
-            {
-                workerCardName.text = "???";
-                cardOpacity = workerCardImage.color;
-                cardOpacity.a = 0.5f;
-                workerCardImage.color = cardOpacity;
-            }
+        if (dialogueScript.infoReceived_Wor)
+        {
+            workerCardName.text = "Castle Defense";
+            workerCardImage.sprite = workerCardActivated;
+            cardOpacity = workerCardImage.color;
+            cardOpacity.a = 1f;
+            workerCardImage.color = cardOpacity;
+        }
+        else
+        {
+            workerCardName.text = "???";
+            cardOpacity = workerCardImage.color;
+            cardOpacity.a = 0.5f;
+            workerCardImage.color = cardOpacity;
+        }
 
-            if (dialogueScript.infoReceived_Far)
-            {
-                farmerCardName.text = "Farm";
-                farmerCardImage.sprite = farmerCardActivated;
-                cardOpacity = farmerCardImage.color;
-                cardOpacity.a = 1f;
-                farmerCardImage.color = cardOpacity;
-            }
-            else
-            {
-                farmerCardName.text = "???";
-                cardOpacity = farmerCardImage.color;
-                cardOpacity.a = 0.5f;
-                farmerCardImage.color = cardOpacity;
-            }
+        if (dialogueScript.infoReceived_Far)
+        {
+            farmerCardName.text = "Medieval Farming";
+            farmerCardImage.sprite = farmerCardActivated;
+            cardOpacity = farmerCardImage.color;
+            cardOpacity.a = 1f;
+            farmerCardImage.color = cardOpacity;
+        }
+        else
+        {
+            farmerCardName.text = "???";
+            cardOpacity = farmerCardImage.color;
+            cardOpacity.a = 0.5f;
+            farmerCardImage.color = cardOpacity;
+        }
 
-            if (dialogueScript.infoReceived_Mon)
-            {
-                monkCardName.text = "Shrine";
-                monkCardImage.sprite = monkCardActivated;
-                cardOpacity = monkCardImage.color;
-                cardOpacity.a = 1f;
-                monkCardImage.color = cardOpacity;
-            }
-            else
-            {
-                monkCardName.text = "???";
-                cardOpacity = monkCardImage.color;
-                cardOpacity.a = 0.5f;
-                monkCardImage.color = cardOpacity;
-            }
-
-            // if for cats card here
-
+        if (dialogueScript.infoReceived_Mon)
+        {
+            monkCardName.text = "Goddess Avena";
+            monkCardImage.sprite = monkCardActivated;
+            cardOpacity = monkCardImage.color;
+            cardOpacity.a = 1f;
+            monkCardImage.color = cardOpacity;
+        }
+        else
+        {
+            monkCardName.text = "???";
+            cardOpacity = monkCardImage.color;
+            cardOpacity.a = 0.5f;
+            monkCardImage.color = cardOpacity;
+        }
+            
+        if (dialogueScript.infoReceived_Cat)
+        {
+            catCardName.text = "The Cat Legend";
+            catCardImage.sprite = catCardActivated;
+            cardOpacity = catCardImage.color;
+            cardOpacity.a = 1f;
+            catCardImage.color = cardOpacity;
+        }
+        else
+        {
+            catCardName.text = "???";
+            cardOpacity = catCardImage.color;
+            cardOpacity.a = 0.5f;
+            catCardImage.color = cardOpacity;
+        }
     }
 
     public void ShowCardInfo(string npc) 
@@ -250,7 +276,7 @@ public class CardManager : MonoBehaviour
                     cardInfo.SetActive(true);
                     cardsMenu.SetActive(false);
                     infoActive = true;
-                    cardInfoText.text = "Among all the other sellers in the market is the cook, who whips up meals for the citizens per request, making sure to use his skills as well as local ingredients to keep them well fed and satisfied. He often uses a cauldron to make his famous soups, which are ideal for the colder months. But when it's warmer outside, he's usually busy with his mortar.";
+                    cardInfoText.text = "Cooking Tools\n\nThe town's cook prepares meals using local ingredients and age-old techniques. His tools of choice include a large cauldron for hearty soups during the colder months, and a mortar and pestle for grinding herbs and spices in warmer seasons.";
                 }
                 else
                 {
@@ -265,7 +291,7 @@ public class CardManager : MonoBehaviour
                     cardInfo.SetActive(true);
                     cardsMenu.SetActive(false);
                     infoActive = true;
-                    cardInfoText.text = "On most days one can find the castropolis' gardener at the market, where she sells a big variety of fresh herbs that can be used both for cooking and for medicinal purposes. Her garden is located near the market as well.";
+                    cardInfoText.text = "Botanical Garden\n\nThe Garden of Castropolis holds a rich variety of flowers and fresh herbs, cherished by both cooks and healers. From thyme to sage, each plant serves a purpose—whether it’s flavoring a stew or easing a fever. You’ll find it near the market, a quiet green spot in the heart of the bustling town.";
                 }
                 else
                 {
@@ -280,12 +306,12 @@ public class CardManager : MonoBehaviour
                     cardInfo.SetActive(true);
                     cardsMenu.SetActive(false);
                     infoActive = true;
-                    cardInfoText.text = "The castle was originally a relatively small one and had no walls, with only a few knights protecting it. But after the Great War, in which the castropolis was almost taken over, the need for proper defence became apparent. The workers work tirelessly to make sure the walls are strong.";
-                }  
+                    cardInfoText.text = "Castle Defense\n\nThe castle was once a modest stronghold, without walls, guarded by only a handful of knights. But after the Great War —when Castropolis nearly fell— the need for true defenses became clear. Since then, workers have toiled day and night to raise sturdy walls, and more guards have been stationed to protect the town from enemies.";
+                }
                 else
                 {
-                   Debug.Log("Card is not unlocked yet");
-                }   
+                    Debug.Log("Card is not unlocked yet");
+                }
                 break;
 
             case "Farmer":
@@ -295,12 +321,12 @@ public class CardManager : MonoBehaviour
                     cardInfo.SetActive(true);
                     cardsMenu.SetActive(false);
                     infoActive = true;
-                    cardInfoText.text = "The farm offers fresh vegetables and fruit, as well as animal products of great quality to the citizens of the castropolis. The animals there are particularly friendly.";
-                }  
+                    cardInfoText.text = "Medieval Farming\n\nThe farm provides fresh vegetables, fruits, and high-quality animal products to the people of Castropolis. Animals like oxen and horses help plow the fields, while sheep supply wool and cows give milk. Traditional crop rotation and manure from the animals keep the soil rich, ensuring bountiful harvests year after year.";
+                }
                 else
                 {
-                   Debug.Log("Card is not unlocked yet");
-                }   
+                    Debug.Log("Card is not unlocked yet");
+                }
                 break;
 
             case "Monk":
@@ -310,16 +336,27 @@ public class CardManager : MonoBehaviour
                     cardInfo.SetActive(true);
                     cardsMenu.SetActive(false);
                     infoActive = true;
-                    cardInfoText.text = "The shrine is a place that welcomes any citizens that in need of finding calmness and inner peace. The monk can help guide them and give advice, as well as wisdom. The statue of Goddess Avena stands at the top of the little hill, blessing the castropolis with success in agriculture. If one talks to Goddess Avena, she might just share her wisdom.";
-                }  
+                    cardInfoText.text = "Goddess Avena\n\nThe Shrine of Goddess Avena welcomes all who seek calm and inner peace. At the top of the hill stands Avena’s statue, watching over Castropolis and blessing its fields with growth. And if one dares speak to the Goddess… they may just hear her ancient wisdom whispered on the wind.";
+                }
                 else
                 {
-                   Debug.Log("Card is not unlocked yet");
-                }   
+                    Debug.Log("Card is not unlocked yet");
+                }
                 break;
-
-            // case for cats here
-
+            case "Cat":
+                if (dialogueScript.infoReceived_Cat && !infoActive)
+                {
+                    Debug.Log("Cat card clicked - presenting info");
+                    cardInfo.SetActive(true);
+                    cardsMenu.SetActive(false);
+                    infoActive = true;
+                    cardInfoText.text = "The Cat Legend\n\nLegend speaks of four lucky cats that roam these lands—each a guardian of fortune, courage, wisdom, and peace. If you are fortunate enough to meet all four, they say your luck will never run dry, your heart will stay brave, your mind forever sharp, and your spirit calm and steady.";
+                }
+                else
+                {
+                    Debug.Log("Card is not unlocked yet");
+                }
+                break;
         }
 
     }
@@ -329,6 +366,7 @@ public class CardManager : MonoBehaviour
         cardsMenu.SetActive(false);
         cardsActive = false;
         Debug.Log("Closed CardsMenu");
+        InputManager.isGamePaused = false;
     }
 
     public void CloseInfoMenu()

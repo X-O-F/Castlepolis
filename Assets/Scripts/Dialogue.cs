@@ -23,7 +23,8 @@ public class Dialogue : MonoBehaviour
     public bool infoReceived_Wor = false;
     public bool infoReceived_Far = false;
     public bool infoReceived_Mon = false;
-    // infoReceived_Cats?
+    public bool infoReceived_Cat = false;
+
     public Button yesButton, noButton;
     public Item farmerItem;
 
@@ -33,6 +34,11 @@ public class Dialogue : MonoBehaviour
     private System.Action yesAction, noAction;
 
     private int index;
+
+    private bool blueCatFound = false;
+    private bool orangeCatFound = false;
+    private bool hidingCatFound = false;
+    private bool whiteCatFound = false;
 
     [System.Serializable]
     public class npcDialogue
@@ -100,21 +106,30 @@ public class Dialogue : MonoBehaviour
 
                 if (npcDialogue.npcName == "Cook")
                 {
-                    infoReceived_Cook = true;
-                    NotificationManager.instance.ShowNotif("Card Unlocked:\nCook", "card");
-                    Debug.Log("Info received from cook");
+                    if (!infoReceived_Cook)
+                    {
+                        infoReceived_Cook = true;
+                        NotificationManager.instance.ShowNotif("Card Unlocked:\nCooking", "card");
+                        Debug.Log("Info received from cook");
+                    }
                 }
                 else if (npcDialogue.npcName == "Gardener")
                 {
-                    infoReceived_Gar = true;
-                    NotificationManager.instance.ShowNotif("Card Unlocked:\nGardener", "card");
-                    Debug.Log("Info received from gardener");
+                    if (!infoReceived_Gar)
+                    {
+                        infoReceived_Gar = true;
+                        NotificationManager.instance.ShowNotif("Card Unlocked:\nGarden", "card");
+                        Debug.Log("Info received from gardener");
+                    }
                 }
                 else if (npcDialogue.npcName == "Worker")
                 {
-                    infoReceived_Wor = true;
-                    NotificationManager.instance.ShowNotif("Card Unlocked:\nWorker", "card");
-                    Debug.Log("Info received from worker");
+                    if (!infoReceived_Wor)
+                    {
+                        infoReceived_Wor = true;
+                        NotificationManager.instance.ShowNotif("Card Unlocked:\nCastle Defense", "card");
+                        Debug.Log("Info received from worker");
+                    }
                 }
                 else if (npcDialogue.npcName == "Farmer")
                 {
@@ -124,15 +139,21 @@ public class Dialogue : MonoBehaviour
                 }
                 else if (npcDialogue.npcName == "Monk")
                 {
-                    infoReceived_Mon = true;
-                    NotificationManager.instance.ShowNotif("Card Unlocked:\nMonk", "card");
-                    Debug.Log("Info received from monk");
+                    if (!infoReceived_Mon)
+                    {
+                        infoReceived_Mon = true;
+                        NotificationManager.instance.ShowNotif("Card Unlocked:\nGoddess Avena", "card");
+                        Debug.Log("Info received from monk");
+                    }
                 }
                 else if (npcDialogue.npcName == "Farmer2")
                 {
-                    infoReceived_Far = true;
-                    NotificationManager.instance.ShowNotif("Card Unlocked:\nFarmer", "card");
-                    Debug.Log("Info received from farmer");
+                    if (!infoReceived_Far)
+                    {
+                        infoReceived_Far = true;
+                        NotificationManager.instance.ShowNotif("Card Unlocked:\nFarming", "card");
+                        Debug.Log("Info received from farmer");
+                    }
                 }
                 else if (npcDialogue.npcName == "Avena")
                 {
@@ -140,6 +161,58 @@ public class Dialogue : MonoBehaviour
                     avenaLine = npcDialogue.lines[randomIndex];
                     audioSource.clip = npcDialogue.audioClips[0];
                     current = new string[] { avenaLine };
+                }
+                else if (npcDialogue.npcName == "CatBlue")
+                {
+                    blueCatFound = true;
+                    if (allCatsFound())
+                    {
+                        if (!infoReceived_Cat)
+                        {
+                            infoReceived_Cat = true;
+                            NotificationManager.instance.ShowNotif("Card Unlocked:\nCat Legend", "card");
+                            Debug.Log("Info received from cats");
+                        }
+                    }
+                }
+                else if (npcDialogue.npcName == "CatWhite")
+                {
+                    whiteCatFound = true;
+                    if (allCatsFound())
+                    {
+                        if (!infoReceived_Cat)
+                        {
+                            infoReceived_Cat = true;
+                            NotificationManager.instance.ShowNotif("Card Unlocked:\nCat Legend", "card");
+                            Debug.Log("Info received from cats");
+                        }
+                    }
+                }
+                else if (npcDialogue.npcName == "CatOrange")
+                {
+                    orangeCatFound = true;
+                    if (allCatsFound())
+                    {
+                        if (!infoReceived_Cat)
+                        {
+                            infoReceived_Cat = true;
+                            NotificationManager.instance.ShowNotif("Card Unlocked:\nCat Legend", "card");
+                            Debug.Log("Info received from cats");
+                        }
+                    }
+                }
+                else if (npcDialogue.npcName == "CatHiding")
+                {
+                    hidingCatFound = true;
+                    if (allCatsFound())
+                    {
+                        if (!infoReceived_Cat)
+                        {
+                            infoReceived_Cat = true;
+                            NotificationManager.instance.ShowNotif("Card Unlocked:\nCat Legend", "card");
+                            Debug.Log("Info received from cats");
+                        }
+                    }
                 }
 
                 break;
@@ -271,5 +344,10 @@ public class Dialogue : MonoBehaviour
         dialogueActive = false;
         SetVisible(false);
         InputManager.isGamePaused = false; // Unlock player movement
+    }
+
+    public bool allCatsFound()
+    {
+        return blueCatFound && orangeCatFound && hidingCatFound && whiteCatFound;
     }
 }
