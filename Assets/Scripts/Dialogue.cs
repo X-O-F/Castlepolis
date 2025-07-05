@@ -20,7 +20,10 @@ public class Dialogue : MonoBehaviour
     public bool dialogueActive = false;
     public bool infoReceived_Cook = false;
     public bool infoReceived_Gar = false;
-    public bool infoReceived_Com = false;
+    public bool infoReceived_Wor = false;
+    public bool infoReceived_Far = false;
+    public bool infoReceived_Mon = false;
+    // infoReceived_Cats?
     public Button yesButton, noButton;
     public Item farmerItem;
 
@@ -105,16 +108,24 @@ public class Dialogue : MonoBehaviour
                     infoReceived_Gar = true;
                     Debug.Log("Info received from gardener");
                 }
-                else if (npcDialogue.npcName == "Commander")
+                else if (npcDialogue.npcName == "Worker")
                 {
-                    infoReceived_Com = true;
-                    Debug.Log("Info received from commander");
+                    infoReceived_Wor = true;
+                    Debug.Log("Info received from worker");
                 }
                 else if (npcDialogue.npcName == "Farmer")
                 {
+                    infoReceived_Far = true;
+                    Debug.Log("Info received from farmer");
+
                     InventoryManager.instance.AddItem(farmerItem);
                     MusicManager.instance.PlayPopSFX();
                     Debug.Log("Farmer gave carrot to player.");
+                }
+                else if (npcDialogue.npcName == "Monk")
+                {
+                    infoReceived_Mon = true;
+                    Debug.Log("Info received from monk");
                 }
                 else if (npcDialogue.npcName == "Avena")
                 {
@@ -124,6 +135,8 @@ public class Dialogue : MonoBehaviour
                     current = new string[] { avenaLine };
                 }
                 break;
+
+                // if for cats here -- set infoReceived_Cats = true;
             }
         }
 

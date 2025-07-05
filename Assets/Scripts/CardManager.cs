@@ -19,10 +19,22 @@ public class CardManager : MonoBehaviour
     public Sprite gardenerCardActivated;
     public Image gardenerCardImage;
 
-    public TextMeshProUGUI commanderCardName;
-    public GameObject commanderCard;
-    public Sprite commanderCardActivated;
-    public Image commanderCardImage;
+    public TextMeshProUGUI workerCardName;
+    public GameObject workerCard;
+    public Sprite workerCardActivated;
+    public Image workerCardImage;
+
+    public TextMeshProUGUI farmerCardName;
+    public GameObject farmerCard;
+    public Sprite farmerCardActivated;
+    public Image farmerCardImage;
+
+    public TextMeshProUGUI monkCardName;
+    public GameObject monkCard;
+    public Sprite monkCardActivated;
+    public Image monkCardImage;
+
+    // same stuff for cats card here
 
     private Color cardOpacity;
 
@@ -71,14 +83,34 @@ public class CardManager : MonoBehaviour
             Debug.Log("GardenerCard not found");
         }
 
-        if (commanderCard != null)
+        if (workerCard != null)
         {
-            commanderCardName = commanderCard.transform.Find("CommanderCardName").GetComponent<TextMeshProUGUI>();
+            workerCardName = workerCard.transform.Find("WorkerCardName").GetComponent<TextMeshProUGUI>();
         }
         else
         {
-            Debug.Log("CommanderCard not found");
+            Debug.Log("WorkerCard not found");
         }
+
+        if (farmerCard != null)
+        {
+            farmerCardName = farmerCard.transform.Find("FarmerCardName").GetComponent<TextMeshProUGUI>();
+        }
+        else
+        {
+            Debug.Log("FarmerCard not found");
+        }
+
+        if (monkCard != null)
+        {
+            monkCardName = monkCard.transform.Find("MonkCardName").GetComponent<TextMeshProUGUI>();
+        }
+        else
+        {
+            Debug.Log("MonkCard not found");
+        }
+
+        // if for cats card here
 
         if (cardInfo != null)
         {
@@ -124,7 +156,7 @@ public class CardManager : MonoBehaviour
     {
             if (dialogueScript.infoReceived_Cook)
             {
-                cookCardName.text = "Restaurant";
+                cookCardName.text = "Market (Cook)";
                 cookCardImage.sprite = cookCardActivated;
                 cardOpacity = cookCardImage.color;
                 cardOpacity.a = 1f;
@@ -140,7 +172,7 @@ public class CardManager : MonoBehaviour
 
             if (dialogueScript.infoReceived_Gar)
             {
-                gardenerCardName.text = "Garden";
+                gardenerCardName.text = "Market (Gardener)";
                 gardenerCardImage.sprite = gardenerCardActivated;
                 cardOpacity = gardenerCardImage.color;
                 cardOpacity.a = 1f;
@@ -154,21 +186,55 @@ public class CardManager : MonoBehaviour
                 gardenerCardImage.color = cardOpacity;
             }
 
-            if (dialogueScript.infoReceived_Com)
+            if (dialogueScript.infoReceived_Wor)
             {
-                commanderCardName.text = "Castle";
-                commanderCardImage.sprite = commanderCardActivated;
-                cardOpacity = commanderCardImage.color;
+                workerCardName.text = "Castle Walls";
+                workerCardImage.sprite = workerCardActivated;
+                cardOpacity = workerCardImage.color;
                 cardOpacity.a = 1f;
-                commanderCardImage.color = cardOpacity;
+                workerCardImage.color = cardOpacity;
             }
             else
             {
-                commanderCardName.text = "???";
-                cardOpacity = commanderCardImage.color;
+                workerCardName.text = "???";
+                cardOpacity = workerCardImage.color;
                 cardOpacity.a = 0.5f;
-                commanderCardImage.color = cardOpacity;
+                workerCardImage.color = cardOpacity;
             }
+
+            if (dialogueScript.infoReceived_Far)
+            {
+                farmerCardName.text = "Farm";
+                farmerCardImage.sprite = farmerCardActivated;
+                cardOpacity = farmerCardImage.color;
+                cardOpacity.a = 1f;
+                farmerCardImage.color = cardOpacity;
+            }
+            else
+            {
+                farmerCardName.text = "???";
+                cardOpacity = farmerCardImage.color;
+                cardOpacity.a = 0.5f;
+                farmerCardImage.color = cardOpacity;
+            }
+
+            if (dialogueScript.infoReceived_Mon)
+            {
+                monkCardName.text = "Shrine";
+                monkCardImage.sprite = monkCardActivated;
+                cardOpacity = monkCardImage.color;
+                cardOpacity.a = 1f;
+                monkCardImage.color = cardOpacity;
+            }
+            else
+            {
+                monkCardName.text = "???";
+                cardOpacity = monkCardImage.color;
+                cardOpacity.a = 0.5f;
+                monkCardImage.color = cardOpacity;
+            }
+
+            // if for cats card here
 
     }
 
@@ -184,7 +250,7 @@ public class CardManager : MonoBehaviour
                     cardInfo.SetActive(true);
                     cardsMenu.SetActive(false);
                     infoActive = true;
-                    cardInfoText.text = "Info about cooking stuff";
+                    cardInfoText.text = "Among all the other sellers in the market is the cook, who whips up meals for the citizens per request, making sure to use his skills as well as local ingredients to keep them well fed and satisfied. He often uses a cauldron to make his famous soups, which are ideal for the colder months. But when it's warmer outside, he's usually busy with his mortar.";
                 }
                 else
                 {
@@ -199,7 +265,7 @@ public class CardManager : MonoBehaviour
                     cardInfo.SetActive(true);
                     cardsMenu.SetActive(false);
                     infoActive = true;
-                    cardInfoText.text = "Info about garden";
+                    cardInfoText.text = "On most days one can find the castropolis' gardener at the market, where she sells a big variety of fresh herbs that can be used both for cooking and for medicinal purposes. Her garden is located near the market as well.";
                 }
                 else
                 {
@@ -207,20 +273,52 @@ public class CardManager : MonoBehaviour
                 }
                 break;
 
-            case "Commander":
-                if (dialogueScript.infoReceived_Com && !infoActive)
+            case "Worker":
+                if (dialogueScript.infoReceived_Wor && !infoActive)
                 {
-                    Debug.Log("Commander card clicked - presenting info");
+                    Debug.Log("Worker card clicked - presenting info");
                     cardInfo.SetActive(true);
                     cardsMenu.SetActive(false);
                     infoActive = true;
-                    cardInfoText.text = "Info about castle";
+                    cardInfoText.text = "The castle was originally a relatively small one and had no walls, with only a few knights protecting it. But after the Great War, in which the castropolis was almost taken over, the need for proper defence became apparent. The workers work tirelessly to make sure the walls are strong.";
                 }  
                 else
                 {
                    Debug.Log("Card is not unlocked yet");
                 }   
                 break;
+
+            case "Farmer":
+                if (dialogueScript.infoReceived_Far && !infoActive)
+                {
+                    Debug.Log("Farmer card clicked - presenting info");
+                    cardInfo.SetActive(true);
+                    cardsMenu.SetActive(false);
+                    infoActive = true;
+                    cardInfoText.text = "The farm offers fresh vegetables and fruit, as well as animal products of great quality to the citizens of the castropolis. The animals there are particularly friendly.";
+                }  
+                else
+                {
+                   Debug.Log("Card is not unlocked yet");
+                }   
+                break;
+
+            case "Monk":
+                if (dialogueScript.infoReceived_Mon && !infoActive)
+                {
+                    Debug.Log("Monk card clicked - presenting info");
+                    cardInfo.SetActive(true);
+                    cardsMenu.SetActive(false);
+                    infoActive = true;
+                    cardInfoText.text = "The shrine is a place that welcomes any citizens that in need of finding calmness and inner peace. The monk can help guide them and give advice, as well as wisdom. The statue of Goddess Avena stands at the top of the little hill, blessing the castropolis with success in agriculture. If one talks to Goddess Avena, she might just share her wisdom.";
+                }  
+                else
+                {
+                   Debug.Log("Card is not unlocked yet");
+                }   
+                break;
+
+            // case for cats here
 
         }
 
