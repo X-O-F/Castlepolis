@@ -147,6 +147,17 @@
                 {
                     "name": "",
                     "id": "b4a9aad5-a4da-48ec-a407-6d8ee25971d5",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "61401bba-e2dd-44d3-97b1-5d102e9e2223",
                     "path": "<Keyboard>/m",
                     "interactions": "",
                     "processors": "",
