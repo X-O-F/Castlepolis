@@ -246,7 +246,12 @@ public class Dialogue : MonoBehaviour
         dialogueActive = true;
         SetVisible(true);
 
+        StopAllCoroutines();
+        isTyping = false;
+
         current = new string[] { message };
+        index = 0;
+
         StartCoroutine(TypeLine(true));
 
         yesAction = onYes;
@@ -272,6 +277,8 @@ public class Dialogue : MonoBehaviour
         }
 
         current = new string[] { message };
+        index = 0;
+        
         textComponent.text = string.Empty;
         typingCoroutine = StartCoroutine(TypeLine());
     }
